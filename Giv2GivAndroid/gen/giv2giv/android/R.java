@@ -11,10 +11,14 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int dashboard=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int list=0x7f020002;
+        public static final int settings=0x7f020003;
     }
     public static final class id {
         public static final int InvestDonateDivide=0x7f050021;
+        public static final int charityListButton=0x7f050022;
         public static final int conservativeDollar=0x7f050016;
         public static final int conservativeLabel=0x7f050011;
         public static final int conservativeLock=0x7f050014;
@@ -25,6 +29,7 @@ public final class R {
         public static final int contributionPeriod=0x7f050007;
         public static final int contributionSign=0x7f050005;
         public static final int currentFundTotal=0x7f050010;
+        public static final int dashboardButton=0x7f050023;
         public static final int dashboardLayout=0x7f050000;
         public static final int fundInvestDivide=0x7f05000e;
         public static final int fundSection=0x7f050001;
@@ -47,6 +52,7 @@ public final class R {
         public static final int periodicIncrease=0x7f050008;
         public static final int periodicPercent=0x7f05000a;
         public static final int selectedPayment=0x7f05000c;
+        public static final int settingsButton=0x7f050024;
         public static final int sliderBank=0x7f05000f;
     }
     public static final class layout {

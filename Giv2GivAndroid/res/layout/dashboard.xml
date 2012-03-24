@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/dashboardLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -138,13 +138,15 @@
 		android:layout_height="10dp"
 		android:layout_marginTop="5dp"
 		android:layout_marginBottom="5dp"
-		android:background="#FF888888" />
+		android:background="#FF888888" 
+		android:layout_below="@id/fundSection"/>
   
 	<RelativeLayout
 		android:id="@+id/sliderBank"
 	    android:orientation="vertical"
 	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content">
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/fundInvestDivide">
 	    
 	    <TextView android:id="@+id/currentFundTotal"
 	        android:layout_width="fill_parent"
@@ -277,6 +279,28 @@
 		android:layout_height="10dp"
 		android:layout_marginTop="5dp"
 		android:layout_marginBottom="5dp"
-		android:background="#FF888888" />
-  
-</LinearLayout>
+		android:background="#FF888888" 
+		android:layout_below="@id/sliderBank"/>
+	
+	<ImageButton 
+	    android:id="@+id/charityListButton"
+	    android:layout_width="175dp"
+	    android:layout_height="70dp"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentBottom="true"
+	    android:src="@drawable/list"/>
+	<ImageButton 
+	    android:id="@+id/dashboardButton"
+	    android:layout_width="175dp"
+	    android:layout_height="70dp"
+	    android:layout_toRightOf="@id/charityListButton"
+	    android:layout_alignParentBottom="true"
+	    android:src="@drawable/dashboard"/>
+	<ImageButton 
+	    android:id="@+id/settingsButton"
+	    android:layout_width="175dp"
+	    android:layout_height="70dp"
+	    android:layout_toRightOf="@id/dashboardButton"
+	    android:layout_alignParentBottom="true"
+	    android:src="@drawable/settings"/>
+</RelativeLayout>
