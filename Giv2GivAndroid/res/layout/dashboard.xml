@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/dashboardLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -163,7 +163,8 @@
 	        android:layout_below="@id/currentFundTotal"/>
 	
 	    <SeekBar android:id="@+id/conservativeSlider"
-	        android:layout_width="345dp"
+	        android:layout_width="335dp"
+	        android:layout_marginLeft="10dp"
 	        android:layout_height="wrap_content"
 	        android:layout_below="@id/conservativeLabel" />
 	    
@@ -173,7 +174,7 @@
 	        android:text="Lock"
             android:textStyle="bold"
 	        android:layout_below="@id/currentFundTotal"
-	        android:layout_marginLeft="164dp"
+	        android:layout_marginLeft="258dp"
 	        android:layout_toRightOf="@id/conservativeLabel" />
 	    
 	   <CheckBox android:id="@+id/conservativeLock"
@@ -208,7 +209,8 @@
 	        android:layout_below="@id/conservativeSlider"/>
 	   
 	    <SeekBar android:id="@+id/moderateSlider"
-	        android:layout_width="345dp"
+	        android:layout_width="335dp"
+	        android:layout_marginLeft="10dp"
 	        android:layout_height="wrap_content"
 	        android:layout_below="@id/moderateLabel"/>
 	    
@@ -244,7 +246,8 @@
 	        android:layout_below="@id/moderateSlider"/>
 	    
 	    <SeekBar android:id="@+id/liberalSlider"
-	        android:layout_width="345dp"
+	        android:layout_width="335dp"
+	        android:layout_marginLeft="10dp"
 	        android:layout_height="wrap_content"
 	        android:layout_below="@id/liberalLabel"/>
 	    
@@ -274,13 +277,86 @@
 	</RelativeLayout> 
 	
 	<View
-        android:id="@+id/InvestDonateDivide"
+        android:id="@+id/investDonateDivide"
         android:layout_width="fill_parent"
 		android:layout_height="10dp"
 		android:layout_marginTop="5dp"
 		android:layout_marginBottom="5dp"
 		android:background="#FF888888" 
 		android:layout_below="@id/sliderBank"/>
+	
+	<RelativeLayout
+	    android:id="@+id/donateSection"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content" 
+	    android:layout_below="@id/investDonateDivide">
+	    
+	    <TextView
+	        android:id="@+id/earningDonateLabel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Earnings to Donate:"
+	        android:textStyle="bold" 
+	        android:layout_marginBottom="10dp"/>
+	    
+	    <SeekBar android:id="@+id/percentEarningSlider"
+	        android:layout_width="335dp"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="10dp"
+	        android:layout_below="@id/earningDonateLabel"/>
+	    
+	    <TextView
+	        android:id="@+id/percentEarning"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="310dp"
+	        android:text="%"
+	        android:textStyle="bold"
+	        android:layout_below="@id/investDonateDivide"
+	        android:layout_toRightOf="@id/earningDonateLabel" />
+	    
+	    <TextView
+	        android:id="@+id/earningsAmountPlus"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="15dp"
+	        android:text="+"
+	        android:textStyle="bold"
+	        android:textSize="35dp"
+	        android:layout_below="@id/percentEarning" />
+	    
+	    <TextView
+	        android:id="@+id/flatDonateLabel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Amount to Donate:"
+	        android:textStyle="bold"
+	        android:layout_marginTop="8dp"
+	        android:layout_marginBottom="10dp"
+	        android:layout_below="@id/percentEarningSlider" />
+	    
+	    <TextView
+	        android:id="@+id/amountDonatePeriod"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="/qtr."
+	        android:textStyle="bold"
+	        android:layout_marginTop="2dp"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@id/earningsAmountPlus" />
+
+		<EditText
+            android:id="@+id/amountDonated"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:textSize="11dp"
+            android:layout_marginRight="3dp"
+            android:inputType="phone"
+            android:layout_toLeftOf="@id/amountDonatePeriod"
+            android:layout_below="@id/earningsAmountPlus"/>
+        
+	</RelativeLayout>
 	
 	<ImageButton 
 	    android:id="@+id/charityListButton"
@@ -296,6 +372,7 @@
 	    android:layout_toRightOf="@id/charityListButton"
 	    android:layout_alignParentBottom="true"
 	    android:src="@drawable/dashboard"/>
+	
 	<ImageButton 
 	    android:id="@+id/settingsButton"
 	    android:layout_width="175dp"

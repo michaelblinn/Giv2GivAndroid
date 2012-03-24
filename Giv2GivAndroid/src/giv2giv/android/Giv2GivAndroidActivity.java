@@ -352,6 +352,30 @@ public class Giv2GivAndroidActivity extends Activity {
                 }
             }
         });
+    
+        SeekBar earningsDonate = (SeekBar)findViewById(R.id.percentEarningSlider);
+        earningsDonate.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+			
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) 
+			{
+			}
+			
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) 
+			{
+			}
+			
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) 
+			{
+				TextView earningsPercent = (TextView)findViewById(R.id.percentEarning);
+				earningsPercent.setText("" + seekBar.getProgress() + "%");
+			}
+		});
+        TextView earningsPercent = (TextView)findViewById(R.id.percentEarning);
+        earningsPercent.setText("" + earningsDonate.getProgress() + "%");
     }
     public static double round(double unrounded, int precision)
     {
