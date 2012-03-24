@@ -1,120 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/sliderBank"
-    android:orientation="vertical"
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dashboardLayout"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
     
-    <TextView android:id="@+id/currentFundTotal"
+    <RelativeLayout
+        android:id="@+id/fundSection"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Current fund total: $"
-        android:layout_alignParentTop="true" />
+        android:layout_height="wrap_content">
+        
+        <TextView
+            android:id="@+id/fundsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Funds: "
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="352dp" />
+        
+        <TextView
+            android:id="@+id/fundsAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$148.67"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@id/fundsLabel" />
+        
+        <TextView
+            android:id="@+id/contributionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Contribution: "
+            android:textStyle="bold"
+            android:layout_below="@id/fundsLabel"
+            android:layout_marginRight="270dp" 
+            android:layout_marginTop="10dp"/>
+        
+        <TextView
+            android:id="@+id/contributionSign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$"
+            android:layout_marginRight="2dp"
+            android:textStyle="bold"
+            android:layout_below="@id/fundsAmount"
+            android:layout_toRightOf="@id/contributionLabel" />
+        
+        <EditText
+            android:id="@+id/contributionAmount"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:textSize="11dp"
+            android:layout_marginTop="10dp" 
+            android:layout_marginRight="3dp"
+            android:inputType="phone"
+            android:layout_toRightOf="@id/contributionSign"
+            android:layout_below="@id/fundsLabel"/>
+        
+        <TextView
+            android:id="@+id/contributionPeriod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/mo"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/contributionAmount"
+            android:layout_below="@id/fundsAmount" />
+        
+        <TextView
+            android:id="@+id/periodicIncrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yearly Increase: "
+            android:textStyle="bold"
+            android:layout_below="@id/contributionLabel"
+            android:layout_marginRight="320dp" 
+            android:layout_marginTop="10dp"/>
+        
+         <EditText
+            android:id="@+id/increaseAmount"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textSize="11dp"
+            android:layout_marginTop="3dp" 
+            android:layout_marginRight="3dp"
+            android:inputType="phone"
+            android:layout_toRightOf="@id/periodicIncrease"
+            android:layout_below="@id/contributionAmount"/>
+        
+        <TextView
+            android:id="@+id/periodicPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="%"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/increaseAmount"
+            android:layout_below="@id/contributionAmount" />
+        
+        <TextView
+            android:id="@+id/paymentMethod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Method: "
+            android:textStyle="bold"
+            android:layout_below="@id/periodicIncrease"
+            android:layout_marginRight="295dp" 
+            android:layout_marginTop="10dp"/>
+        
+        <TextView
+            android:id="@+id/selectedPayment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paypal"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_below="@id/periodicPercent"
+            android:layout_toRightOf="@id/paymentMethod" />
+        
+        <TextView
+            android:id="@+id/paymentSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please set payment information in the settings tab"
+            android:textStyle="italic"
+            android:layout_below="@id/paymentMethod"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"/>
+        
+    </RelativeLayout>
     
-    <TextView android:id="@+id/conservativeLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Conservative" 
-        android:layout_below="@id/currentFundTotal"/>
-
-    <SeekBar android:id="@+id/conservativeSlider"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/conservativeLabel" />
-    
-    <TextView android:id="@+id/lockLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lock"
-        android:layout_below="@id/currentFundTotal"
-        android:layout_marginLeft="173dp"
-        android:layout_toRightOf="@id/conservativeLabel" />
-    
-   <CheckBox android:id="@+id/conservativeLock"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_toRightOf="@id/conservativeSlider"
-       android:layout_below="@id/lockLabel"/>
-    
-    <TextView android:id="@+id/conservativePercent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="65%" 
-        android:layout_marginTop="5dp"
-        android:layout_toRightOf="@id/conservativeLock" 
-        android:layout_below="@id/lockLabel"/>
-    
-    <TextView android:id="@+id/conservativeDollar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="= "
-        android:layout_marginTop="5dp" 
-        android:layout_below="@id/lockLabel"
-        android:layout_toRightOf="@id/conservativePercent"/>
-    
-    <TextView android:id="@+id/moderateLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Balanced" 
-        android:layout_below="@id/conservativeSlider"/>
-   
-    <SeekBar android:id="@+id/moderateSlider"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/moderateLabel"/>
-    
-   <CheckBox android:id="@+id/moderateLock"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_below="@id/conservativeLock"
-       android:layout_toRightOf="@id/moderateSlider" />
-   
-    <TextView android:id="@+id/moderatePercent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="65%" 
-        android:layout_marginTop="55dp"
-        android:layout_toRightOf="@id/moderateLock" 
-        android:layout_below="@id/lockLabel"/>
-    
-    <TextView android:id="@+id/moderateDollar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="= " 
-        android:layout_marginTop="30dp" 
-        android:layout_below="@id/conservativeDollar"
-        android:layout_toRightOf="@id/moderatePercent"/>
-    
-    <TextView android:id="@+id/liberalLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Aggressive"
-        android:layout_below="@id/moderateSlider"/>
-    
-    <SeekBar android:id="@+id/liberalSlider"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/liberalLabel"/>
-    
-   <CheckBox android:id="@+id/liberalLock"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_below="@id/moderateLock"
-       android:layout_toRightOf="@id/liberalSlider" />
-    
-    <TextView android:id="@+id/liberalPercent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="65%" 
-        android:layout_marginTop="30dp"
-        android:layout_toRightOf="@id/liberalLock" 
-        android:layout_below="@id/moderatePercent" />
-    
-    <TextView android:id="@+id/liberalDollar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="= " 
-        android:layout_marginTop="30dp" 
-        android:layout_below="@id/moderateDollar"
-        android:layout_toRightOf="@id/liberalPercent"/>
-</RelativeLayout>
+    <View
+        android:id="@+id/fundInvestDivide"
+        android:layout_width="fill_parent"
+		android:layout_height="10dp"
+		android:layout_marginTop="5dp"
+		android:layout_marginBottom="5dp"
+		android:background="#FF888888" />
+  
+	<RelativeLayout
+		android:id="@+id/sliderBank"
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+	    
+	    <TextView android:id="@+id/currentFundTotal"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="Current fund total: $"
+            android:textStyle="bold"
+	        android:layout_alignParentTop="true" />
+	    
+	    <TextView android:id="@+id/conservativeLabel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Conservative" 
+            android:textStyle="bold"
+	        android:layout_below="@id/currentFundTotal"/>
+	
+	    <SeekBar android:id="@+id/conservativeSlider"
+	        android:layout_width="345dp"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/conservativeLabel" />
+	    
+	    <TextView android:id="@+id/lockLabel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Lock"
+            android:textStyle="bold"
+	        android:layout_below="@id/currentFundTotal"
+	        android:layout_marginLeft="164dp"
+	        android:layout_toRightOf="@id/conservativeLabel" />
+	    
+	   <CheckBox android:id="@+id/conservativeLock"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:layout_toRightOf="@id/conservativeSlider"
+	       android:layout_below="@id/lockLabel"/>
+	    
+	    <TextView android:id="@+id/conservativePercent"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="65%" 
+            android:textStyle="bold"
+	        android:layout_marginTop="5dp"
+	        android:layout_toRightOf="@id/conservativeLock" 
+	        android:layout_below="@id/lockLabel"/>
+	    
+	    <TextView android:id="@+id/conservativeDollar"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="= "
+	        android:textStyle="bold"
+	        android:layout_marginTop="5dp" 
+	        android:layout_below="@id/lockLabel"
+	        android:layout_toRightOf="@id/conservativePercent"/>
+	    
+	    <TextView android:id="@+id/moderateLabel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Balanced" 
+            android:textStyle="bold"
+	        android:layout_below="@id/conservativeSlider"/>
+	   
+	    <SeekBar android:id="@+id/moderateSlider"
+	        android:layout_width="345dp"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/moderateLabel"/>
+	    
+	   <CheckBox android:id="@+id/moderateLock"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:layout_below="@id/conservativeLock"
+	       android:layout_toRightOf="@id/moderateSlider" />
+	   
+	    <TextView android:id="@+id/moderatePercent"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="65%" 
+            android:textStyle="bold"
+	        android:layout_marginTop="55dp"
+	        android:layout_toRightOf="@id/moderateLock" 
+	        android:layout_below="@id/lockLabel"/>
+	    
+	    <TextView android:id="@+id/moderateDollar"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="= " 
+            android:textStyle="bold"
+	        android:layout_marginTop="30dp" 
+	        android:layout_below="@id/conservativeDollar"
+	        android:layout_toRightOf="@id/moderatePercent"/>
+	    
+	    <TextView android:id="@+id/liberalLabel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Aggressive"
+            android:textStyle="bold"
+	        android:layout_below="@id/moderateSlider"/>
+	    
+	    <SeekBar android:id="@+id/liberalSlider"
+	        android:layout_width="345dp"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/liberalLabel"/>
+	    
+	   <CheckBox android:id="@+id/liberalLock"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:layout_below="@id/moderateLock"
+	       android:layout_toRightOf="@id/liberalSlider" />
+	    
+	    <TextView android:id="@+id/liberalPercent"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="65%" 
+            android:textStyle="bold"
+	        android:layout_marginTop="30dp"
+	        android:layout_toRightOf="@id/liberalLock" 
+	        android:layout_below="@id/moderatePercent" />
+	    
+	    <TextView android:id="@+id/liberalDollar"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="= " 
+            android:textStyle="bold"
+	        android:layout_marginTop="30dp" 
+	        android:layout_below="@id/moderateDollar"
+	        android:layout_toRightOf="@id/liberalPercent"/>
+	</RelativeLayout> 
+	
+	<View
+        android:id="@+id/InvestDonateDivide"
+        android:layout_width="fill_parent"
+		android:layout_height="10dp"
+		android:layout_marginTop="5dp"
+		android:layout_marginBottom="5dp"
+		android:background="#FF888888" />
+  
+</LinearLayout>

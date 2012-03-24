@@ -17,7 +17,7 @@ public class Giv2GivAndroidActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.dashboard);
-        final double ourMoney = 87;
+        final double ourMoney = 148.67;
         TextView currentFundTotal = (TextView)findViewById(R.id.currentFundTotal);
         currentFundTotal.setText(currentFundTotal.getText() + "" + ourMoney);
         SeekBar conservativeSlider = (SeekBar)findViewById(R.id.conservativeSlider);
