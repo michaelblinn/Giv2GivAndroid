@@ -36,6 +36,22 @@
        android:layout_toRightOf="@id/conservativeSlider"
        android:layout_below="@id/lockLabel"/>
     
+    <TextView android:id="@+id/conservativePercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="65%" 
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/conservativeLock" 
+        android:layout_below="@id/lockLabel"/>
+    
+    <TextView android:id="@+id/conservativeDollar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="= "
+        android:layout_marginTop="5dp" 
+        android:layout_below="@id/lockLabel"
+        android:layout_toRightOf="@id/conservativePercent"/>
+    
     <TextView android:id="@+id/moderateLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,6 +69,22 @@
        android:layout_below="@id/conservativeLock"
        android:layout_toRightOf="@id/moderateSlider" />
    
+    <TextView android:id="@+id/moderatePercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="65%" 
+        android:layout_marginTop="55dp"
+        android:layout_toRightOf="@id/moderateLock" 
+        android:layout_below="@id/lockLabel"/>
+    
+    <TextView android:id="@+id/moderateDollar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="= " 
+        android:layout_marginTop="30dp" 
+        android:layout_below="@id/conservativeDollar"
+        android:layout_toRightOf="@id/moderatePercent"/>
+    
     <TextView android:id="@+id/liberalLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,4 +102,19 @@
        android:layout_below="@id/moderateLock"
        android:layout_toRightOf="@id/liberalSlider" />
     
+    <TextView android:id="@+id/liberalPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="65%" 
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@id/liberalLock" 
+        android:layout_below="@id/moderatePercent" />
+    
+    <TextView android:id="@+id/liberalDollar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="= " 
+        android:layout_marginTop="30dp" 
+        android:layout_below="@id/moderateDollar"
+        android:layout_toRightOf="@id/liberalPercent"/>
 </RelativeLayout>
