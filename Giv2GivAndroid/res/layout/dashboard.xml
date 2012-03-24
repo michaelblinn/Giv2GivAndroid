@@ -5,14 +5,20 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
     
+    <TextView android:id="@+id/currentFundTotal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Current fund total: $"
+        android:layout_alignParentTop="true" />
+    
     <TextView android:id="@+id/conservativeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Conservative Fund" />
-    "
-    
+        android:text="Conservative" 
+        android:layout_below="@id/currentFundTotal"/>
+
     <SeekBar android:id="@+id/conservativeSlider"
-        android:layout_width="445dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/conservativeLabel" />
     
@@ -20,22 +26,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lock"
-        android:layout_alignParentRight="true" />
+        android:layout_below="@id/currentFundTotal"
+        android:layout_marginLeft="173dp"
+        android:layout_toRightOf="@id/conservativeLabel" />
     
    <CheckBox android:id="@+id/conservativeLock"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_toRightOf="@id/conservativeSlider" 
+       android:layout_toRightOf="@id/conservativeSlider"
        android:layout_below="@id/lockLabel"/>
     
     <TextView android:id="@+id/moderateLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Moderate Fund" 
+        android:text="Balanced" 
         android:layout_below="@id/conservativeSlider"/>
    
     <SeekBar android:id="@+id/moderateSlider"
-        android:layout_width="445dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/moderateLabel"/>
     
@@ -48,11 +56,11 @@
     <TextView android:id="@+id/liberalLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Liberal Fund"
+        android:text="Aggressive"
         android:layout_below="@id/moderateSlider"/>
     
     <SeekBar android:id="@+id/liberalSlider"
-        android:layout_width="445dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/liberalLabel"/>
     
