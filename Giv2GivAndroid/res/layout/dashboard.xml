@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/sliderBank"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+    <TextView android:id="@+id/conservativeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Conservative Fund" />
+    "
+    
+    <SeekBar android:id="@+id/conservativeSlider"
+        android:layout_width="445dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/conservativeLabel" />
+    
+    <TextView android:id="@+id/lockLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lock"
+        android:layout_alignParentRight="true" />
+    
+   <CheckBox android:id="@+id/conservativeLock"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_toRightOf="@id/conservativeSlider" 
+       android:layout_below="@id/lockLabel"/>
+    
+    <TextView android:id="@+id/moderateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Moderate Fund" 
+        android:layout_below="@id/conservativeSlider"/>
+   
+    <SeekBar android:id="@+id/moderateSlider"
+        android:layout_width="445dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/moderateLabel"/>
+    
+   <CheckBox android:id="@+id/moderateLock"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/conservativeLock"
+       android:layout_toRightOf="@id/moderateSlider" />
+   
+    <TextView android:id="@+id/liberalLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Liberal Fund"
+        android:layout_below="@id/moderateSlider"/>
+    
+    <SeekBar android:id="@+id/liberalSlider"
+        android:layout_width="445dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/liberalLabel"/>
+    
+   <CheckBox android:id="@+id/liberalLock"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/moderateLock"
+       android:layout_toRightOf="@id/liberalSlider" />
+    
+</RelativeLayout>
