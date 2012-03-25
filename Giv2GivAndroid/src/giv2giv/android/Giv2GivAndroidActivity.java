@@ -1,17 +1,26 @@
 package giv2giv.android;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class Giv2GivAndroidActivity extends Activity {
     /** Called when the activity is first created. */
+    public ArrayList<SeekBar> charitySliders;
+    public ArrayList<TextView> charityPercents;
+    public ArrayList<Integer> sliderValues;
+    public int charitySlidersSum;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +52,7 @@ public class Giv2GivAndroidActivity extends Activity {
 				{
 					return;
 				}
+				int seek = seekBar.getProgress();
 				int otherProgress = 100-progress;
 				TextView consPerc = (TextView)findViewById(R.id.conservativePercent);
     			TextView medPerc = (TextView)findViewById(R.id.moderatePercent);
@@ -376,6 +386,181 @@ public class Giv2GivAndroidActivity extends Activity {
 		});
         TextView earningsPercent = (TextView)findViewById(R.id.percentEarning);
         earningsPercent.setText("" + earningsDonate.getProgress() + "%");
+        
+        //THIS WOULD BE PASSED IN BY INTENT FROM THE LIST OF CHARITIES
+        ArrayList<String> myCharities = new ArrayList<String>();
+        myCharities.add("American Red Cross");
+        myCharities.add("Boy Scouts of America");
+        myCharities.add("The United Way");
+        myCharities.add("Stuff");
+        RelativeLayout charityList = (RelativeLayout)findViewById(R.id.charityList);
+       
+        charitySlidersSum = 100;
+        int charitySumOverflow = 100 % myCharities.size();
+        int perCharitySum = 100 / myCharities.size();
+        charitySliders = new ArrayList<SeekBar>();
+        charityPercents = new ArrayList<TextView>();
+        sliderValues = new ArrayList<Integer>();
+        int lastCharityId = R.id.donateCharityDivide;
+        int baseId = 0x7f0f0000;
+        int sliderStart = perCharitySum;
+        for (int i = 0; i < myCharities.size(); i++) 
+        {
+            if (charitySumOverflow > 0)
+            {
+            	sliderStart++;
+            	charitySumOverflow--;
+            }
+            RelativeLayout charityDisplay = createCharityDisplay(myCharities.get(i), baseId, sliderStart);
+            RelativeLayout.LayoutParams charityParams = new RelativeLayout.LayoutParams(LayoutParams.FILL_PARENT, 
+            		LayoutParams.WRAP_CONTENT);
+            charityParams.addRule(RelativeLayout.BELOW, lastCharityId);
+            lastCharityId = charityDisplay.getId();
+            baseId += 4;
+            charityList.addView(charityDisplay, charityParams);
+            sliderStart = perCharitySum;
+        }
+        for (int i = 0; i < charitySliders.size(); i++)
+        {
+        	SeekBar thisSlider = charitySliders.get(i);
+        	thisSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+				
+				@Override
+				public void onStopTrackingTouch(SeekBar seekBar) 
+				{
+				}
+				
+				@Override
+				public void onStartTrackingTouch(SeekBar seekBar) 
+				{
+				}
+				
+				@Override
+				public void onProgressChanged(SeekBar seekBar, int progress,
+						boolean fromUser) 
+				{
+					if (!fromUser)
+					{
+						return;
+					}
+					int seekIndex = -1;
+					int index = charitySliders.indexOf(seekBar);
+					int difference = progress - sliderValues.get(index);
+					int winIndex = -1;
+					
+					if (difference < 0)
+					{
+						int min = 100;
+						for (int i = 0; i < charitySliders.size(); i++)
+						{
+							if (charitySliders.get(i).equals(seekBar))
+							{
+								seekIndex = i;
+								continue;
+							}
+							if (charitySliders.get(i).getProgress() < min)
+							{
+								min = charitySliders.get(i).getProgress();
+								winIndex = i;
+							}
+						}
+					}
+					else if (difference > 0)
+					{
+						int max = 00;
+						for (int i = 0; i < charitySliders.size(); i++)
+						{
+							if (charitySliders.get(i).equals(seekBar))
+							{
+								seekIndex = i;
+								continue;
+							}
+							if (charitySliders.get(i).getProgress() > max)
+							{
+								max = charitySliders.get(i).getProgress();
+								winIndex = i;
+							}
+						}
+					}
+					charitySliders.get(winIndex).setProgress(sliderValues.get(winIndex) - difference);
+					sliderValues.set(winIndex, new Integer(charitySliders.get(winIndex).getProgress()));
+					charityPercents.get(winIndex).setText("" + charitySliders.get(winIndex).getProgress() + "%");
+					charitySliders.get(seekIndex).setProgress(progress);
+					sliderValues.set(seekIndex, new Integer(progress));
+					charityPercents.get(seekIndex).setText("" + progress + "%");/*
+					int baseAdjust = difference / (charitySliders.size() - 1);
+					int everyAdjust = baseAdjust;
+					int overflow = difference % (charitySliders.size() - 1);
+					for (int i = 0; i < charitySliders.size(); i++)
+					{
+						if (charitySliders.get(i).equals(seekBar))
+						{
+							sliderValues.set(i, new Integer(progress));
+							charityPercents.get(i).setText("" + progress + "%");
+							continue;
+						}
+						if (overflow != 0)
+						{
+							everyAdjust += (int)Math.signum(overflow);
+							overflow -= (int)Math.signum(overflow);
+						}
+						charitySliders.get(i).setProgress(sliderValues.get(i) - everyAdjust);
+						sliderValues.set(i, new Integer(charitySliders.get(i).getProgress()));
+						charityPercents.get(i).setText("" + charitySliders.get(i).getProgress() + "%");
+						everyAdjust = baseAdjust;
+					}*/
+				}
+			});
+        
+        }
+        
+        
+    }
+    
+    public RelativeLayout createCharityDisplay(String charityName, int id, int sliderStart)
+    {
+    	RelativeLayout charityDisplay = new RelativeLayout(this);
+    	charityDisplay.setId(id);
+    	id += 4;
+    	RelativeLayout.LayoutParams labelParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, 
+    			LayoutParams.WRAP_CONTENT);
+    	RelativeLayout.LayoutParams percentParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, 
+    			LayoutParams.WRAP_CONTENT);
+    	RelativeLayout.LayoutParams seekParams = new RelativeLayout.LayoutParams(335, 
+    			LayoutParams.WRAP_CONTENT);
+    	RelativeLayout.LayoutParams lockParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, 
+    			LayoutParams.WRAP_CONTENT);
+    	TextView charityLabel = new TextView(this);
+    	labelParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT, id);
+    	labelParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, id);
+    	labelParams.setMargins(0, 10, 0, 10);
+    	charityLabel.setText(charityName);
+    	charityLabel.setTextSize(20);
+    	charityLabel.setId(id);
+    	charityDisplay.addView(charityLabel, labelParams);
+    	TextView charityPercent = new TextView(this);
+    	percentParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, id);
+    	percentParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, id);
+    	percentParams.setMargins(0, 0, 10, 0);
+    	charityPercent.setText("%");
+    	charityPercent.setTextSize(20);
+    	charityDisplay.addView(charityPercent, percentParams);
+    	SeekBar charitySeek = new SeekBar(this);
+    	seekParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT, id);
+    	seekParams.addRule(RelativeLayout.BELOW, charityLabel.getId());
+    	percentParams.setMargins(10, 42, 0, 0);
+    	charitySeek.setProgress(sliderStart);
+    	sliderValues.add(sliderStart);
+    	charityDisplay.addView(charitySeek, seekParams);
+    	CheckBox charityLock = new CheckBox(this);
+    	lockParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, id);
+    	lockParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, id);
+    	lockParams.setMargins(0, 0, 97, 0);
+    	charityDisplay.addView(charityLock, lockParams);
+    	
+    	charitySliders.add(charitySeek);
+    	charityPercents.add(charityPercent);
+    	return charityDisplay;
     }
     public static double round(double unrounded, int precision)
     {
