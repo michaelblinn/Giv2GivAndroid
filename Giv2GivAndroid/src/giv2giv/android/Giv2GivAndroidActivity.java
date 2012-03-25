@@ -402,8 +402,9 @@ public class Giv2GivAndroidActivity extends Activity {
         earningsPercent.setText("" + earningsDonate.getProgress() + "%");
         
         //THIS WOULD BE PASSED IN BY INTENT FROM THE LIST OF CHARITIES
+        ArrayList<String> myCharities = new ArrayList<String>();
         Bundle fromCharityList = this.getIntent().getBundleExtra("charity_info");
-        ArrayList<String> myCharities = fromCharityList.getStringArrayList("charities");
+        myCharities = fromCharityList.getStringArrayList("charities");
         RelativeLayout charityList = (RelativeLayout)findViewById(R.id.charityList);
        
         charitySlidersSum = 100;

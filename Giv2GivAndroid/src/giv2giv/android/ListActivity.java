@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ListActivity extends Activity 
 {
@@ -63,12 +64,28 @@ public class ListActivity extends Activity
             	}
             }
         });
+        
+        ImageButton listButton = (ImageButton)findViewById(R.id.listListButton);
+        listButton.setOnTouchListener(new OnTouchListener()
+        {
+        	public boolean onTouch(View v, MotionEvent event)
+        	{
+        		finish();
+        		return true;
+        	}
+        });
         ImageButton dashButton = (ImageButton)findViewById(R.id.listDashButton);
         dashButton.setOnTouchListener(new OnTouchListener() 
         {
             @Override
             public boolean onTouch(View v, MotionEvent event) 
             {
+            	if (myCharities.size() == 0)
+            	{
+            		Toast toast = Toast.makeText(v.getContext(), "Error: You must select at least 1 charity", Toast.LENGTH_SHORT);
+            		toast.show();
+            		return true;
+            	}
         		Intent dashboardScreen = new Intent(v.getContext(), Giv2GivAndroidActivity.class);
 				Bundle charities = new Bundle();
 				charities.putStringArrayList("charities", myCharities);
