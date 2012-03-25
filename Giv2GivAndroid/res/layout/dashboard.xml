@@ -389,27 +389,27 @@
 		</RelativeLayout>
 		
 		<ImageButton 
-		    android:id="@+id/charityListButton"
-		    android:layout_width="175dp"
+		    android:id="@+id/dashListButton"
+		    android:layout_width="160dp"
 		    android:layout_height="70dp"
 		    android:layout_alignParentLeft="true"
 		    android:layout_alignParentBottom="true"
 		    android:src="@drawable/list"/>
 		
 		<ImageButton 
-		    android:id="@+id/dashboardButton"
-		    android:layout_width="175dp"
+		    android:id="@+id/dashDashButton"
+		    android:layout_width="160dp"
 		    android:layout_height="70dp"
-		    android:layout_toRightOf="@id/charityListButton"
+		    android:layout_toRightOf="@id/dashListButton"
 		    android:layout_alignParentBottom="true"
 		    android:layout_below="@id/charityList"
 		    android:src="@drawable/dashboard"/>
 		
 		<ImageButton 
-		    android:id="@+id/settingsButton"
-		    android:layout_width="175dp"
+		    android:id="@+id/dashSetButton"
+		    android:layout_width="160dp"
 		    android:layout_height="70dp"
-		    android:layout_toRightOf="@id/dashboardButton"
+		    android:layout_toRightOf="@id/dashDashButton"
 		    android:layout_alignParentBottom="true"
 		    android:layout_below="@id/charityList"
 		    android:src="@drawable/settings"/>

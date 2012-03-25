@@ -4,13 +4,18 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup.LayoutParams;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -26,13 +31,15 @@ public class Giv2GivAndroidActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.dashboard);
         final double ourMoney = 148.67;
         TextView currentFundTotal = (TextView)findViewById(R.id.currentFundTotal);
         currentFundTotal.setText(currentFundTotal.getText() + "" + ourMoney);
         SeekBar conservativeSlider = (SeekBar)findViewById(R.id.conservativeSlider);
         conservativeSlider.setProgress(34);
-        conservativeSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() 
+        conservativeSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
         {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
@@ -46,8 +53,7 @@ public class Giv2GivAndroidActivity extends Activity {
 			}
 			
 			@Override
-			public void onProgressChanged(SeekBar seekBar, int progress,
-					boolean fromUser) 
+			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) 
 			{
 				if (!fromUser)
 				{
@@ -396,10 +402,8 @@ public class Giv2GivAndroidActivity extends Activity {
         earningsPercent.setText("" + earningsDonate.getProgress() + "%");
         
         //THIS WOULD BE PASSED IN BY INTENT FROM THE LIST OF CHARITIES
-        ArrayList<String> myCharities = new ArrayList<String>();
-        myCharities.add("American Red Cross");
-        myCharities.add("Boy Scouts of America");
-        myCharities.add("The United Way");
+        Bundle fromCharityList = this.getIntent().getBundleExtra("charity_info");
+        ArrayList<String> myCharities = fromCharityList.getStringArrayList("charities");
         RelativeLayout charityList = (RelativeLayout)findViewById(R.id.charityList);
        
         charitySlidersSum = 100;
@@ -524,7 +528,47 @@ public class Giv2GivAndroidActivity extends Activity {
 			});       
         }
         
-        
+        ImageButton charityListButton = (ImageButton)findViewById(R.id.dashListButton);
+        charityListButton.setOnTouchListener(new OnTouchListener() 
+        {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) 
+            {
+            	/*if (getCallingActivity() != null)
+            	{
+            		setResult(Activity.RESULT_FIRST_USER);
+            		finish();
+            	}
+            	else
+            	{
+            		finish();
+            	}*/finish();
+            	return true;
+            }
+            
+        });
+        ImageButton setButton = (ImageButton)findViewById(R.id.dashSetButton);
+        setButton.setOnTouchListener(new OnTouchListener() 
+        {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) 
+            {/*
+            	if (getCallingActivity() != null)
+            	{
+            		setResult(Activity.RESULT_OK);
+            		finish();
+            	}
+            	else
+            	{
+            		Intent settingsScreen = new Intent(v.getContext(), SettingsActivity.class);
+            		startActivityForResult(settingsScreen, 13);
+            	}*/
+
+        		Intent settingsScreen = new Intent(v.getContext(), SettingsActivity.class);
+        		//startActivity(settingsScreen);
+            	return true;
+            }
+        });
     }
     
     public RelativeLayout createCharityDisplay(String charityName, int id, int sliderStart)
@@ -611,5 +655,12 @@ public class Giv2GivAndroidActivity extends Activity {
         BigDecimal bd = new BigDecimal(unrounded);
         BigDecimal rounded = bd.setScale(precision, BigDecimal.ROUND_DOWN);
         return rounded.doubleValue();
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent Data)
+    {
+    	if (requestCode == 13 && resultCode == Activity.RESULT_FIRST_USER)
+    	{
+    		finish();
+    	}
     }
 }

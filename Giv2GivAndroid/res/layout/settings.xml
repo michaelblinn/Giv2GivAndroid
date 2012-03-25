@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/settings"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    
+    	<TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="Settings" />
+    	
+		<ImageButton 
+		    android:id="@+id/setListButton"
+		    android:layout_width="160dp"
+		    android:layout_height="70dp"
+		    android:layout_alignParentLeft="true"
+		    android:layout_alignParentBottom="true"
+		    android:src="@drawable/list"/>
+		
+		<ImageButton 
+		    android:id="@+id/setDashButton"
+		    android:layout_width="160dp"
+		    android:layout_height="70dp"
+		    android:layout_toRightOf="@id/setListButton"
+		    android:layout_alignParentBottom="true"
+		    android:src="@drawable/dashboard"/>
+		
+		<ImageButton 
+		    android:id="@+id/setSetButton"
+		    android:layout_width="160dp"
+		    android:layout_height="70dp"
+		    android:layout_toRightOf="@id/setDashButton"
+		    android:layout_alignParentBottom="true"
+		    android:src="@drawable/settings"/>
+</RelativeLayout>
