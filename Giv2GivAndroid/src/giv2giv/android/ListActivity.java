@@ -1,19 +1,9 @@
 package giv2giv.android;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.RelativeLayout;
-import android.widget.SeekBar;
-import android.widget.TextView;
 
 public class ListActivity extends Activity {
     /** Called when the activity is first created. */

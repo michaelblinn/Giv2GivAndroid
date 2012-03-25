@@ -271,9 +271,16 @@ public class Giv2GivAndroidActivity extends Activity {
 			}
 		});
         
-        TextView conservativeValue = (TextView)findViewById(R.id.conservativeLabel);
-        TextView moderateValue = (TextView)findViewById(R.id.moderateLabel);
-        TextView liberalValue = (TextView)findViewById(R.id.liberalLabel);
+        TextView conservativeValue = (TextView)findViewById(R.id.conservativeDollar);
+		double percent = ((double)conservativeSlider.getProgress()) / 100;
+		conservativeValue.setText("=$" + (round(percent * ourMoney,2)));
+        //conservativeValue.setText(conservativeSlider.getProgress())
+        TextView moderateValue = (TextView)findViewById(R.id.moderateDollar);
+		percent = ((double)moderateSlider.getProgress()) / 100;
+		moderateValue.setText("=$" + (round(percent * ourMoney,2)));
+        TextView liberalValue = (TextView)findViewById(R.id.liberalDollar);
+		percent = ((double)liberalSlider.getProgress()) / 100;
+		liberalValue.setText("=$" + (round(percent * ourMoney,2)));
         
         TextView conservativePerc = (TextView)findViewById(R.id.conservativePercent);
         conservativePerc.setText("" + conservativeSlider.getProgress() + "%");

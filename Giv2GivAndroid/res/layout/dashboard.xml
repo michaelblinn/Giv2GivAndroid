@@ -10,10 +10,19 @@
 	    android:layout_height="wrap_content"
 	    android:orientation="vertical">
 	    
+	    <Button
+	        android:id="@+id/topFundDivide"
+	        android:layout_width="fill_parent"
+			android:layout_height="40dp"
+			android:layout_marginTop="5dp"
+			android:layout_marginBottom="5dp"
+			android:text="Your Information"/>
+	    
 	    <RelativeLayout
 	        android:id="@+id/fundSection"
 	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content">
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/topFundDivide">
 	        
 	        <TextView
 	            android:id="@+id/fundsLabel"
@@ -112,14 +121,14 @@
 	            android:text="Payment Method: "
 	            android:textStyle="bold"
 	            android:layout_below="@id/periodicIncrease"
-	            android:layout_marginRight="295dp" 
+	            android:layout_marginRight="260dp" 
 	            android:layout_marginTop="10dp"/>
 	        
 	        <TextView
 	            android:id="@+id/selectedPayment"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:text="Paypal"
+	            android:text="Bank Acct"
 	            android:textSize="18dp"
 	            android:textStyle="bold"
 	            android:layout_below="@id/periodicPercent"
@@ -137,13 +146,13 @@
 	        
 	    </RelativeLayout>
 	    
-	    <View
+	    <Button
 	        android:id="@+id/fundInvestDivide"
 	        android:layout_width="fill_parent"
-			android:layout_height="10dp"
+			android:layout_height="40dp"
 			android:layout_marginTop="5dp"
 			android:layout_marginBottom="5dp"
-			android:background="#FF888888" 
+			android:text="Investment Strategy"
 			android:layout_below="@id/fundSection"/>
 	  
 		<RelativeLayout
@@ -281,13 +290,13 @@
 		        android:layout_toRightOf="@id/liberalPercent"/>
 		</RelativeLayout> 
 		
-		<View
+		<Button
 	        android:id="@+id/investDonateDivide"
 	        android:layout_width="fill_parent"
-			android:layout_height="10dp"
+			android:layout_height="40dp"
 			android:layout_marginTop="5dp"
 			android:layout_marginBottom="5dp"
-			android:background="#FF888888" 
+			android:text="Quarterly Donation"
 			android:layout_below="@id/sliderBank"/>
 		
 		<RelativeLayout
@@ -363,13 +372,13 @@
 	        
 		</RelativeLayout>
 		
-		<View
+		<Button
 	        android:id="@+id/donateCharityDivide"
 	        android:layout_width="fill_parent"
-			android:layout_height="10dp"
+			android:layout_height="40dp"
 			android:layout_marginTop="5dp"
 			android:layout_marginBottom="5dp"
-			android:background="#FF888888" 
+			android:text="Your Charities"
 			android:layout_below="@id/donateSection"/>
 		
 		<RelativeLayout
