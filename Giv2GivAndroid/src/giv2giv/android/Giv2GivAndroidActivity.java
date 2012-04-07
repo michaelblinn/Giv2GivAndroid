@@ -37,8 +37,31 @@ public class Giv2GivAndroidActivity extends Activity {
         final double ourMoney = 148.67;
         TextView currentFundTotal = (TextView)findViewById(R.id.currentFundTotal);
         currentFundTotal.setText(currentFundTotal.getText() + "" + ourMoney);
+        
+        ArrayList<SeekBar> investmentSliders = new ArrayList<SeekBar>();
         SeekBar conservativeSlider = (SeekBar)findViewById(R.id.conservativeSlider);
-        conservativeSlider.setProgress(34);
+        SeekBar moderateSlider = (SeekBar)findViewById(R.id.moderateSlider);
+        SeekBar liberalSlider = (SeekBar)findViewById(R.id.liberalSlider);
+        investmentSliders.add((SeekBar)findViewById(R.id.conservativeSlider));
+        investmentSliders.add((SeekBar)findViewById(R.id.moderateSlider));
+        investmentSliders.add((SeekBar)findViewById(R.id.liberalSlider));
+
+        ArrayList<TextView> investmentDollars = new ArrayList<TextView>();
+        TextView conservativeValue = (TextView)findViewById(R.id.conservativeDollar);
+        TextView moderateValue = (TextView)findViewById(R.id.moderateDollar);
+        TextView liberalValue = (TextView)findViewById(R.id.liberalDollar);
+		investmentDollars.add(conservativeValue);
+		investmentDollars.add(moderateValue);
+		investmentDollars.add(liberalValue);
+
+        ArrayList<TextView> investmentPercents = new ArrayList<TextView>();
+        TextView conservativePerc = (TextView)findViewById(R.id.conservativePercent);
+        TextView moderatePerc = (TextView)findViewById(R.id.moderatePercent);
+        TextView liberalPerc = (TextView)findViewById(R.id.liberalPercent);
+		investmentPercents.add(conservativePerc);
+		investmentPercents.add(moderatePerc);
+		investmentPercents.add(liberalPerc);
+        /*
         conservativeSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
         {
 			@Override
@@ -116,8 +139,7 @@ public class Giv2GivAndroidActivity extends Activity {
     			libDolla.setText("=$" + (round(percent * ourMoney,2)));
 			}
 		});
-        SeekBar moderateSlider = (SeekBar)findViewById(R.id.moderateSlider);
-        moderateSlider.setProgress(33);
+        
         moderateSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() 
         {
 			@Override
@@ -196,8 +218,7 @@ public class Giv2GivAndroidActivity extends Activity {
     			libDolla.setText("=$" + (round(percent * ourMoney,2)));
 			}
 		});
-        SeekBar liberalSlider = (SeekBar)findViewById(R.id.liberalSlider);
-        liberalSlider.setProgress(33);
+        
         liberalSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() 
         {
 			@Override
@@ -276,25 +297,9 @@ public class Giv2GivAndroidActivity extends Activity {
     			libDolla.setText("=$" + (round(percent * ourMoney,2)));
 			}
 		});
-        
-        TextView conservativeValue = (TextView)findViewById(R.id.conservativeDollar);
-		double percent = ((double)conservativeSlider.getProgress()) / 100;
-		conservativeValue.setText("=$" + (round(percent * ourMoney,2)));
-        //conservativeValue.setText(conservativeSlider.getProgress())
-        TextView moderateValue = (TextView)findViewById(R.id.moderateDollar);
-		percent = ((double)moderateSlider.getProgress()) / 100;
-		moderateValue.setText("=$" + (round(percent * ourMoney,2)));
-        TextView liberalValue = (TextView)findViewById(R.id.liberalDollar);
-		percent = ((double)liberalSlider.getProgress()) / 100;
-		liberalValue.setText("=$" + (round(percent * ourMoney,2)));
-        
-        TextView conservativePerc = (TextView)findViewById(R.id.conservativePercent);
-        conservativePerc.setText("" + conservativeSlider.getProgress() + "%");
-        TextView moderatePerc = (TextView)findViewById(R.id.moderatePercent);
-        moderatePerc.setText("" + moderateSlider.getProgress() + "%");
-        TextView liberalPerc = (TextView)findViewById(R.id.liberalPercent);
-        liberalPerc.setText("" + liberalSlider.getProgress() + "%");
-        
+        */
+		SliderGroup investmentGroup = new SliderGroup(investmentSliders, investmentPercents, investmentDollars, ourMoney);
+		
         CheckBox consLock = (CheckBox)findViewById(R.id.conservativeLock);
         consLock.setOnCheckedChangeListener(new OnCheckedChangeListener()
         {
@@ -433,7 +438,8 @@ public class Giv2GivAndroidActivity extends Activity {
             charityList.addView(charityDisplay, charityParams);
             sliderStart = perCharitySum;
         }
-        for (int i = 0; i < charitySliders.size(); i++)
+        SliderGroup charityGroup = new SliderGroup(charitySliders, charityPercents, null, 0);
+        /*for (int i = 0; i < charitySliders.size(); i++)
         {
         	SeekBar thisSlider = charitySliders.get(i);
         	thisSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -527,7 +533,7 @@ public class Giv2GivAndroidActivity extends Activity {
 						charityPercents.get(seekIndex).setText("" + progress + "%");
 				}
 			});       
-        }
+        }*/
         
         ImageButton charityListButton = (ImageButton)findViewById(R.id.dashListButton);
         charityListButton.setOnTouchListener(new OnTouchListener() 
@@ -566,7 +572,7 @@ public class Giv2GivAndroidActivity extends Activity {
             	}*/
 
         		Intent settingsScreen = new Intent(v.getContext(), SettingsActivity.class);
-        		//startActivity(settingsScreen);
+        		startActivity(settingsScreen);
             	return true;
             }
         });

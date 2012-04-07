@@ -7,10 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.View.OnTouchListener;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class SettingsActivity extends Activity {
     /** Called when the activity is first created. */
@@ -20,7 +21,9 @@ public class SettingsActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.settings);
+        TextView test = new TextView(this);
+        test.setText(UpdateQueue.PushChanges(this));
+        setContentView(test);/*
         ImageButton charityListButton = (ImageButton)findViewById(R.id.setListButton);
         charityListButton.setOnTouchListener(new OnTouchListener() 
         {
@@ -35,7 +38,7 @@ public class SettingsActivity extends Activity {
             	else
             	{
             		finish();
-            	}*/
+            	}
             	Intent listScreen = new Intent(v.getContext(), ListActivity.class);
             	startActivity(listScreen);
             	return true;
@@ -57,13 +60,14 @@ public class SettingsActivity extends Activity {
             	{
             		Intent dashboardScreen = new Intent(v.getContext(), Giv2GivAndroidActivity.class);
             		startActivityForResult(dashboardScreen, 42);
-            	}*/
+            	}
         		Intent dashboardScreen = new Intent(v.getContext(), Giv2GivAndroidActivity.class);
         		startActivity(dashboardScreen);
             	return true;
             }
             
         });
+        */
     }
     
     public static double round(double unrounded, int precision)
