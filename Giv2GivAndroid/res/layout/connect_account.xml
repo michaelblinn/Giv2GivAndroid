@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/connect_screen"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    
+	<TextView
+		android:id="@+id/usernameTag"
+		android:layout_alignParentTop="true"
+		android:layout_centerHorizontal="true"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Username:" />
+
+	<EditText
+        android:id="@+id/usernameField"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:textSize="11dp"
+        android:layout_marginTop="5dp" 
+        android:layout_marginBottom="5dp"
+        android:inputType="phone"
+        android:layout_below="@id/usernameTag"
+        android:layout_centerHorizontal="true"/>
+ 
+	<TextView
+		android:id="@+id/connectTag"
+		android:layout_below="@id/usernameField"
+		android:layout_centerHorizontal="true"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="MobileConnect Key:" />
+
+	<EditText
+        android:id="@+id/connectField"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:textSize="11dp"
+        android:layout_marginTop="5dp" 
+        android:layout_marginBottom="5dp"
+        android:inputType="phone"
+        android:layout_below="@id/connectTag"
+        android:layout_centerHorizontal="true"/>
+	
+	<Button
+	    android:id="@+id/connectButton"
+	    android:layout_width="150dp"
+	    android:layout_height="50dp"
+	    android:layout_below="@id/connectField"
+	    android:layout_centerHorizontal="true"
+	    android:text="Login"/>
+	
+</RelativeLayout>

@@ -11,372 +11,212 @@
 	    android:orientation="vertical">
 	    
 	    <Button
-	        android:id="@+id/topFundDivide"
+	        android:id="@+id/fundHeader"
 	        android:layout_width="fill_parent"
 			android:layout_height="40dp"
 			android:layout_marginTop="5dp"
 			android:layout_marginBottom="5dp"
-			android:text="Your Information"/>
+			android:text="Fund"/>
 	    
 	    <RelativeLayout
 	        android:id="@+id/fundSection"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
-	        android:layout_below="@id/topFundDivide">
-	        
+	        android:layout_below="@id/fundHeader" >
+
 	        <TextView
 	            android:id="@+id/fundsLabel"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:text="My Funds: "
-	            android:textStyle="bold"
 	            android:layout_alignParentTop="true"
-	            android:layout_marginRight="352dp" />
-	        
+	            android:layout_alignParentLeft="true"
+	            android:text="My Funds: "
+	            android:textStyle="bold" />
+
 	        <TextView
-	            android:id="@+id/fundsAmount"
+	            android:id="@+id/fundsValue"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
+	            android:layout_alignParentTop="true"
+	            android:layout_alignParentRight="true"
+	            android:layout_marginRight="5dp"
 	            android:text="$148.67"
-	            android:textStyle="bold"
-	            android:layout_marginBottom="10dp"
-	            android:layout_toRightOf="@id/fundsLabel" />
-	        
+	            android:textStyle="bold" />
+
 	        <TextView
 	            android:id="@+id/contributionLabel"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:text="My Contribution: "
-	            android:textStyle="bold"
 	            android:layout_below="@id/fundsLabel"
-	            android:layout_marginRight="270dp" 
-	            android:layout_marginTop="10dp"/>
-	        
+	            android:layout_marginTop="10dp"
+	            android:text="Scheduled Payments: "
+	            android:textStyle="bold" />
+
 	        <TextView
-	            android:id="@+id/contributionSign"
+	            android:id="@+id/contributionValue"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:text="$"
-	            android:layout_marginRight="2dp"
-	            android:textStyle="bold"
-	            android:layout_below="@id/fundsAmount"
-	            android:layout_toRightOf="@id/contributionLabel" />
-	        
-	        <EditText
-	            android:id="@+id/contributionAmount"
-	            android:layout_width="50dp"
-	            android:layout_height="30dp"
-	            android:textSize="11dp"
-	            android:layout_marginTop="10dp" 
-	            android:layout_marginRight="3dp"
-	            android:inputType="phone"
-	            android:layout_toRightOf="@id/contributionSign"
-	            android:layout_below="@id/fundsLabel"/>
-	        
-	        <TextView
-	            android:id="@+id/contributionPeriod"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:text="/mo"
-	            android:textStyle="bold"
-	            android:layout_marginTop="5dp"
-	            android:layout_toRightOf="@id/contributionAmount"
-	            android:layout_below="@id/fundsAmount" />
-	        
-	        <TextView
-	            android:id="@+id/periodicIncrease"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:text="Yearly Increase: "
-	            android:textStyle="bold"
-	            android:layout_below="@id/contributionLabel"
-	            android:layout_marginRight="320dp" 
-	            android:layout_marginTop="10dp"/>
-	        
-	         <EditText
-	            android:id="@+id/increaseAmount"
-	            android:layout_width="30dp"
-	            android:layout_height="30dp"
-	            android:textSize="11dp"
-	            android:layout_marginTop="3dp" 
-	            android:layout_marginRight="3dp"
-	            android:inputType="phone"
-	            android:layout_toRightOf="@id/periodicIncrease"
-	            android:layout_below="@id/contributionAmount"/>
-	        
-	        <TextView
-	            android:id="@+id/periodicPercent"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:text="%"
-	            android:textStyle="bold"
-	            android:layout_marginTop="5dp"
-	            android:layout_toRightOf="@id/increaseAmount"
-	            android:layout_below="@id/contributionAmount" />
-	        
-	        <TextView
-	            android:id="@+id/paymentMethod"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:text="Payment Method: "
-	            android:textStyle="bold"
-	            android:layout_below="@id/periodicIncrease"
-	            android:layout_marginRight="260dp" 
-	            android:layout_marginTop="10dp"/>
-	        
-	        <TextView
-	            android:id="@+id/selectedPayment"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:text="Bank Acct"
-	            android:textSize="18dp"
-	            android:textStyle="bold"
-	            android:layout_below="@id/periodicPercent"
-	            android:layout_toRightOf="@id/paymentMethod" />
-	        
-	        <TextView
-	            android:id="@+id/paymentSetting"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:text="Please set payment information in the settings tab"
-	            android:textStyle="italic"
-	            android:layout_below="@id/paymentMethod"
-	            android:layout_marginLeft="20dp"
-	            android:layout_marginTop="10dp"/>
-	        
+	            android:layout_alignParentBottom="true"
+	            android:layout_alignParentRight="true"
+	            android:text="$7 per week"
+	            android:textStyle="bold" />
+
 	    </RelativeLayout>
-	    
 	    <Button
-	        android:id="@+id/fundInvestDivide"
+	        android:id="@+id/investHeader"
 	        android:layout_width="fill_parent"
 			android:layout_height="40dp"
 			android:layout_marginTop="5dp"
 			android:layout_marginBottom="5dp"
-			android:text="Investment Strategy"
+			android:text="Invest"
 			android:layout_below="@id/fundSection"/>
 	  
 		<RelativeLayout
-			android:id="@+id/sliderBank"
+			android:id="@+id/investSection"
 		    android:orientation="vertical"
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
-		    android:layout_below="@id/fundInvestDivide">
-		    
-		    <TextView android:id="@+id/currentFundTotal"
-		        android:layout_width="fill_parent"
-		        android:layout_height="wrap_content"
-		        android:text="Current fund total: $"
-	            android:textStyle="bold"
-		        android:layout_alignParentTop="true" />
-		    
-		    <TextView android:id="@+id/conservativeLabel"
+		    android:layout_below="@id/investHeader">
+
+		    <TextView
+		        android:id="@+id/investmentValue"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:text="Conservative" 
-	            android:textStyle="bold"
-		        android:layout_below="@id/currentFundTotal"/>
-		
-		    <SeekBar android:id="@+id/conservativeSlider"
-		        android:layout_width="335dp"
-		        android:layout_marginLeft="10dp"
-		        android:layout_height="wrap_content"
-		        android:layout_below="@id/conservativeLabel" />
-		    
-		    <TextView android:id="@+id/lockLabel"
+		        android:layout_alignParentRight="true"
+		        android:layout_alignParentTop="true"
+		        android:text="$752"
+		        android:textStyle="bold" />
+
+		    <TextView
+		        android:id="@+id/investmentLabel"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:text="Lock"
-	            android:textStyle="bold"
-		        android:layout_below="@id/currentFundTotal"
-		        android:layout_marginLeft="258dp"
-		        android:layout_toRightOf="@id/conservativeLabel" />
+		        android:layout_alignParentLeft="true"
+		        android:layout_alignParentTop="true"
+		        android:layout_marginRight="5dp"
+		        android:text="Balanced Investment Total:"
+		        android:textStyle="bold" />
 		    
-		   <CheckBox android:id="@+id/conservativeLock"
-		       android:layout_width="wrap_content"
-		       android:layout_height="wrap_content"
-		       android:layout_toRightOf="@id/conservativeSlider"
-		       android:layout_below="@id/lockLabel"/>
-		    
-		    <TextView android:id="@+id/conservativePercent"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="65%" 
-	            android:textStyle="bold"
-		        android:layout_marginTop="5dp"
-		        android:layout_toRightOf="@id/conservativeLock" 
-		        android:layout_below="@id/lockLabel"/>
-		    
-		    <TextView android:id="@+id/conservativeDollar"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="= "
-		        android:textStyle="bold"
-		        android:layout_marginTop="5dp" 
-		        android:layout_below="@id/lockLabel"
-		        android:layout_toRightOf="@id/conservativePercent"/>
-		    
-		    <TextView android:id="@+id/moderateLabel"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="Balanced" 
-	            android:textStyle="bold"
-		        android:layout_below="@id/conservativeSlider"/>
-		   
-		    <SeekBar android:id="@+id/moderateSlider"
-		        android:layout_width="335dp"
-		        android:layout_marginLeft="10dp"
-		        android:layout_height="wrap_content"
-		        android:layout_below="@id/moderateLabel"/>
-		    
-		   <CheckBox android:id="@+id/moderateLock"
-		       android:layout_width="wrap_content"
-		       android:layout_height="wrap_content"
-		       android:layout_below="@id/conservativeLock"
-		       android:layout_toRightOf="@id/moderateSlider" />
-		   
-		    <TextView android:id="@+id/moderatePercent"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="65%" 
-	            android:textStyle="bold"
-		        android:layout_marginTop="55dp"
-		        android:layout_toRightOf="@id/moderateLock" 
-		        android:layout_below="@id/lockLabel"/>
-		    
-		    <TextView android:id="@+id/moderateDollar"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="= " 
-	            android:textStyle="bold"
-		        android:layout_marginTop="30dp" 
-		        android:layout_below="@id/conservativeDollar"
-		        android:layout_toRightOf="@id/moderatePercent"/>
-		    
-		    <TextView android:id="@+id/liberalLabel"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="Aggressive"
-	            android:textStyle="bold"
-		        android:layout_below="@id/moderateSlider"/>
-		    
-		    <SeekBar android:id="@+id/liberalSlider"
-		        android:layout_width="335dp"
-		        android:layout_marginLeft="10dp"
-		        android:layout_height="wrap_content"
-		        android:layout_below="@id/liberalLabel"/>
-		    
-		   <CheckBox android:id="@+id/liberalLock"
-		       android:layout_width="wrap_content"
-		       android:layout_height="wrap_content"
-		       android:layout_below="@id/moderateLock"
-		       android:layout_toRightOf="@id/liberalSlider" />
-		    
-		    <TextView android:id="@+id/liberalPercent"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="65%" 
-	            android:textStyle="bold"
-		        android:layout_marginTop="30dp"
-		        android:layout_toRightOf="@id/liberalLock" 
-		        android:layout_below="@id/moderatePercent" />
-		    
-		    <TextView android:id="@+id/liberalDollar"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="= " 
-	            android:textStyle="bold"
-		        android:layout_marginTop="30dp" 
-		        android:layout_below="@id/moderateDollar"
-		        android:layout_toRightOf="@id/liberalPercent"/>
 		</RelativeLayout> 
 		
 		<Button
-	        android:id="@+id/investDonateDivide"
+	        android:id="@+id/donateHeader"
 	        android:layout_width="fill_parent"
 			android:layout_height="40dp"
 			android:layout_marginTop="5dp"
 			android:layout_marginBottom="5dp"
-			android:text="Quarterly Donation"
-			android:layout_below="@id/sliderBank"/>
+			android:text="Donate"
+			android:layout_below="@id/investSection"/>
 		
 		<RelativeLayout
 		    android:id="@+id/donateSection"
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content" 
-		    android:layout_below="@id/investDonateDivide">
+		    android:layout_below="@id/donateHeader">
 		    
 		    <TextView
-		        android:id="@+id/earningDonateLabel"
+		        android:id="@+id/fundsDonateLabel"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:text="Earnings to Donate:"
+		        android:layout_alignParentLeft="true"
+		        android:layout_alignParentTop="true"
+		        android:text="From Principal:"
+		        android:textStyle="bold" 
+		        android:layout_marginBottom="5dp"/>
+		    
+		    <TextView
+		        android:id="@+id/fundsDonateValue"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentRight="true"
+		        android:layout_alignParentTop="true"
+		        android:text="$23"
+		        android:textStyle="bold" 
+		        android:layout_marginBottom="5dp"/>
+		    
+		    <TextView
+		        android:id="@+id/fundsDonateMin"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@id/fundsDonateLabel"
+		        android:text="$0"
 		        android:textStyle="bold" 
 		        android:layout_marginBottom="10dp"/>
 		    
-		    <SeekBar android:id="@+id/percentEarningSlider"
-		        android:layout_width="335dp"
-		        android:layout_height="wrap_content"
-		        android:layout_marginLeft="10dp"
-		        android:layout_below="@id/earningDonateLabel"/>
-		    
 		    <TextView
-		        android:id="@+id/percentEarning"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_marginLeft="310dp"
-		        android:text="%"
-		        android:textStyle="bold"
-		        android:layout_below="@id/investDonateDivide"
-		        android:layout_toRightOf="@id/earningDonateLabel" />
-		    
-		    <TextView
-		        android:id="@+id/earningsAmountPlus"
+		        android:id="@+id/fundsDonateMax"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:layout_alignParentRight="true"
-		        android:layout_marginRight="15dp"
-		        android:text="+"
-		        android:textStyle="bold"
-		        android:textSize="35dp"
-		        android:layout_below="@id/percentEarning" />
+		        android:layout_below="@id/fundsDonateValue"
+		        android:text="$68"
+		        android:textStyle="bold" 
+		        android:layout_marginBottom="10dp"/>
+		    
+		    <SeekBar
+		        android:id="@+id/fundsDonateSlider"
+		        android:layout_width="200dp"
+		        android:layout_height="wrap_content"
+		        android:layout_centerHorizontal="true"
+		        android:layout_alignTop="@id/fundsDonateMin" />
 		    
 		    <TextView
-		        android:id="@+id/flatDonateLabel"
+		        android:id="@+id/earningsDonateLabel"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:text="Amount to Donate:"
-		        android:textStyle="bold"
-		        android:layout_marginTop="8dp"
-		        android:layout_marginBottom="10dp"
-		        android:layout_below="@id/percentEarningSlider" />
+		        android:text="From Earnings:"
+		        android:textStyle="bold" 
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@id/fundsDonateSlider"
+		        android:layout_marginTop="10dp" 
+		        android:layout_marginBottom="5dp" />
 		    
 		    <TextView
-		        android:id="@+id/amountDonatePeriod"
+		        android:id="@+id/earningsDonateValue"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:text="/qtr."
-		        android:textStyle="bold"
-		        android:layout_marginTop="2dp"
 		        android:layout_alignParentRight="true"
-		        android:layout_below="@id/earningsAmountPlus" />
-	
-			<EditText
-	            android:id="@+id/amountDonated"
-	            android:layout_width="50dp"
-	            android:layout_height="30dp"
-	            android:textSize="11dp"
-	            android:layout_marginRight="3dp"
-	            android:inputType="phone"
-	            android:layout_toLeftOf="@id/amountDonatePeriod"
-	            android:layout_below="@id/earningsAmountPlus"/>
-	        
+		        android:layout_below="@id/fundsDonateSlider"
+		        android:text="$23"
+		        android:textStyle="bold" 
+		        android:layout_marginTop="10dp"
+		        android:layout_marginBottom="5dp"/>
+		    
+		    <TextView
+		        android:id="@+id/earningsDonateMin"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@id/earningsDonateLabel"
+		        android:text="$0"
+		        android:textStyle="bold" 
+		        android:layout_marginBottom="100dp"/>
+		    
+		    <TextView
+		        android:id="@+id/earningsDonateMax"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentRight="true"
+		        android:layout_below="@id/earningsDonateValue"
+		        android:text="$68"
+		        android:textStyle="bold" 
+		        android:layout_marginBottom="10dp"/>
+		    
+		    <SeekBar
+		        android:id="@+id/earningsDonateSlider"
+		        android:layout_width="200dp"
+		        android:layout_height="wrap_content"
+		        android:layout_centerHorizontal="true"
+		        android:layout_alignTop="@id/earningsDonateMin" />
+
 		</RelativeLayout>
 		
-		<Button
-	        android:id="@+id/donateCharityDivide"
+		 <Button
+	        android:id="@+id/charityHeader"
 	        android:layout_width="fill_parent"
 			android:layout_height="40dp"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:layout_marginBottom="5dp"
 			android:text="Your Charities"
 			android:layout_below="@id/donateSection"/>
@@ -385,34 +225,7 @@
 		    android:id="@+id/charityList"
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
-		    android:layout_below="@id/donateCharityDivide">    
+		    android:layout_below="@id/charityHeader">    
 		</RelativeLayout>
-		
-		<ImageButton 
-		    android:id="@+id/dashListButton"
-		    android:layout_width="160dp"
-		    android:layout_height="70dp"
-		    android:layout_alignParentLeft="true"
-		    android:layout_alignParentBottom="true"
-		    android:src="@drawable/list"/>
-		
-		<ImageButton 
-		    android:id="@+id/dashDashButton"
-		    android:layout_width="160dp"
-		    android:layout_height="70dp"
-		    android:layout_toRightOf="@id/dashListButton"
-		    android:layout_alignParentBottom="true"
-		    android:layout_below="@id/charityList"
-		    android:src="@drawable/dashboard"/>
-		
-		<ImageButton 
-		    android:id="@+id/dashSetButton"
-		    android:layout_width="160dp"
-		    android:layout_height="70dp"
-		    android:layout_toRightOf="@id/dashDashButton"
-		    android:layout_alignParentBottom="true"
-		    android:layout_below="@id/charityList"
-		    android:src="@drawable/settings"/>
-		
 	</RelativeLayout>
 </ScrollView>

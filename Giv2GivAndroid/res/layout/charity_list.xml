@@ -4,39 +4,16 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
     <Button
-        android:id="@+id/instructions"
+        android:id="@+id/listToDashButton"
         android:layout_width="fill_parent"
-        android:layout_height="90dp" 
-        android:text="Click to add / remove from your dashboard"
+        android:layout_height="50dp" 
+        android:text="Go To Dashboard"
         android:textStyle="bold"
         android:textSize="20dp"/>
+    
     <ListView
         android:id="@+id/charities"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/instructions"/>
-        
-		<ImageButton 
-		    android:id="@+id/listListButton"
-		    android:layout_width="160dp"
-		    android:layout_height="65dp"
-		    android:layout_alignParentLeft="true"
-		    android:layout_below="@id/charities"
-		    android:src="@drawable/list"/>
-		
-		<ImageButton 
-		    android:id="@+id/listDashButton"
-		    android:layout_width="160dp"
-		    android:layout_height="65dp"
-		    android:layout_toRightOf="@id/listListButton"
-		    android:layout_below="@id/charities"
-		    android:src="@drawable/dashboard"/>
-		
-		<ImageButton 
-		    android:id="@+id/listSetButton"
-		    android:layout_width="160dp"
-		    android:layout_height="65dp"
-		    android:layout_toRightOf="@id/listDashButton"
-		    android:layout_below="@id/charities"
-		    android:src="@drawable/settings"/>
+        android:layout_below="@id/listToDashButton"/>        
 </RelativeLayout>

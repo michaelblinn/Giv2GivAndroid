@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroller"
+    android:fillViewport="true"
+    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content">
+
+	<RelativeLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/sign_up_layout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:gravity="top" >
+
+	    <ImageView
+	        android:id="@+id/signupSplash"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentTop="true"
+	        android:adjustViewBounds="true"
+	        android:src="@drawable/mini_splash" />
+
+	    <EditText
+	        android:id="@+id/firstNameField"
+	        android:layout_width="150dp"
+	        android:layout_height="50dp"
+	        android:layout_below="@id/signupSplash"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginBottom="5dp"
+	        android:layout_marginTop="10dp"
+	        android:inputType="text"
+	        android:textSize="11dp" />
+
+	    <EditText
+	        android:id="@+id/lastNameField"
+	        android:layout_width="150dp"
+	        android:layout_height="50dp"
+	        android:layout_below="@id/firstNameField"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginBottom="5dp"
+	        android:layout_marginTop="5dp"
+	        android:inputType="text"
+	        android:textSize="11dp" />
+
+	    <EditText
+	        android:id="@+id/firstAddressField"
+	        android:layout_width="150dp"
+	        android:layout_height="50dp"
+	        android:layout_below="@id/lastNameField"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginBottom="5dp"
+	        android:layout_marginTop="5dp"
+	        android:inputType="text"
+	        android:textSize="11dp" />
+
+	    <EditText
+	        android:id="@+id/secondAddressField"
+	        android:layout_width="150dp"
+	        android:layout_height="50dp"
+	        android:layout_below="@id/firstAddressField"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginBottom="5dp"
+	        android:layout_marginTop="5dp"
+	        android:inputType="text"
+	        android:textSize="11dp" />
+
+	    <EditText
+	        android:id="@+id/cityField"
+	        android:layout_width="150dp"
+	        android:layout_height="50dp"
+	        android:layout_below="@id/secondAddressField"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginBottom="5dp"
+	        android:layout_marginTop="5dp"
+	        android:inputType="text"
+	        android:textSize="11dp" />
+
+	    <EditText
+	        android:id="@+id/stateField"
+	        android:layout_width="150dp"
+	        android:layout_height="50dp"
+	        android:layout_below="@id/cityField"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginBottom="5dp"
+	        android:layout_marginTop="5dp"
+	        android:inputType="text"
+	        android:textSize="11dp" />
+
+	    <EditText
+	        android:id="@+id/zipcodeField"
+	        android:layout_width="150dp"
+	        android:layout_height="50dp"
+	        android:layout_below="@id/stateField"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginBottom="5dp"
+	        android:layout_marginTop="5dp"
+	        android:inputType="number"
+	        android:textSize="11dp" />
+
+	    <TextView
+	        android:id="@+id/firstNameTag"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/firstNameField"
+	        android:layout_alignBottom="@+id/firstNameField"
+	        android:layout_alignParentLeft="true"
+	        android:text="First Name:"
+	        android:textStyle="bold" />
+
+	    <TextView
+	        android:id="@+id/lastNameTag"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/lastNameField"
+	        android:layout_alignBottom="@+id/lastNameField"
+	        android:layout_alignParentLeft="true"
+	        android:text="Last Name:"
+	        android:textStyle="bold" />
+
+	    <TextView
+	        android:id="@+id/firstAddressTag"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/firstAddressField"
+	        android:layout_alignBottom="@+id/firstAddressField"
+	        android:layout_alignParentLeft="true"
+	        android:text="Address:"
+	        android:textStyle="bold" />
+
+	    <TextView
+	        android:id="@+id/secondAddressTag"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/secondAddressField"
+	        android:layout_alignBottom="@+id/secondAddressField"
+	        android:layout_alignParentLeft="true"
+	        android:text="Address 2:"
+	        android:textStyle="bold" />
+
+	    <TextView
+	        android:id="@+id/cityTag"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/cityField"
+	        android:layout_alignBottom="@+id/cityField"
+	        android:layout_alignParentLeft="true"
+	        android:text="City:"
+	        android:textStyle="bold" />
+
+	    <TextView
+	        android:id="@+id/stateTag"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/stateField"
+	        android:layout_alignBottom="@+id/stateField"
+	        android:layout_alignParentLeft="true"
+	        android:text="State:"
+	        android:textStyle="bold" />
+
+	    <TextView
+	        android:id="@+id/zipcodeTag"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/zipcodeField"
+	        android:layout_alignBottom="@+id/zipcodeField"
+	        android:layout_alignParentLeft="true"
+	        android:text="Zip Code:"
+	        android:textStyle="bold" /> 
+	        
+        <EditText
+	        android:id="@+id/emailField"
+	        android:layout_width="150dp"
+	        android:layout_height="50dp"
+	        android:layout_below="@id/zipcodeField"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginBottom="5dp"
+	        android:layout_marginTop="5dp"
+	        android:inputType="textEmailAddress"
+	        android:textSize="11dp" />
+	    
+		<TextView
+	        android:id="@+id/emailTag"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/emailField"
+	        android:layout_alignBottom="@+id/emailField"
+	        android:layout_alignParentLeft="true"
+	        android:text="Email:"
+	        android:textStyle="bold" />
+		
+		<EditText
+	        android:id="@+id/passwordField"
+	        android:layout_width="150dp"
+	        android:layout_height="50dp"
+	        android:layout_below="@id/emailField"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginBottom="5dp"
+	        android:layout_marginTop="5dp"
+	        android:inputType="text"
+	        android:textSize="11dp" />
+	    
+		<TextView
+	        android:id="@+id/passwordTag"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/passwordField"
+	        android:layout_alignBottom="@+id/passwordField"
+	        android:layout_alignParentLeft="true"
+	        android:text="Password:"
+	        android:textStyle="bold" /><!-- 	    <DatePicker
+	        android:id="@+id/dateOfBirth"
+	        android:layout_width="200dp"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@+id/zipcodeField"
+	        android:clipToPadding="true" />
+	    <TextView
+	        android:id="@+id/dateOfBirthTag"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBottom="@+id/dateOfBirth"
+	        android:layout_alignParentLeft="true"
+	        android:layout_marginBottom="46dp"
+	        android:text="Date Of Birth:"
+	        android:textStyle="bold" />-->
+	    
+	    <Button
+	        android:id="@+id/signUpButton"
+	        android:layout_width="fill_parent"
+	        android:layout_height="49dp"
+	        android:layout_centerHorizontal="true"
+	        android:layout_below="@id/passwordField"
+	        android:text="Next" />
+
+
+	</RelativeLayout>
+	
+</ScrollView>
