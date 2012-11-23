@@ -5,8 +5,11 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,15 +25,11 @@ import android.widget.TextView;
 
 public class ListActivity extends Activity 
 {
-	public String[] CHARITIES = new String[]
-	{ 
-		"First Charity"
-	};
+	public Charity[] CHARITIES = {new Charity("cats", "Blurb") };
 	public String blurb = "This is a blurb that is inteded to talk about how awesome charities are" +
 			"so when this actually gets put up on the alert dialog, it will look legit.";
 	public ArrayList<String> myCharities;
 	public ArrayAdapter<String> adapter;
-	private boolean charityListPulled;
     @Override
     public void onCreate(Bundle savedInstanceState) 
     {
@@ -38,17 +37,11 @@ public class ListActivity extends Activity
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.charity_list);
-        charityListPulled = false;
         myCharities = new ArrayList<String>();
-        Charity[] charityList = UpdateQueue.GetCharityList(this);
-        CHARITIES = new String[charityList.length];
-        for (int i = 0; i < charityList.length; i++)
-        {
-        	CHARITIES[i] = charityList[i].mName;
-        }
-        blurb = charityList[1].mBlurb;
+        //CHARITIES = UpdateQueue.GetCharityList(this);
         ListView charities = (ListView)findViewById(R.id.charities);
-        charities.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, CHARITIES));
+        charities.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, 
+        		Charity.getCharityNameArray(CHARITIES)));
         charities.setOnItemClickListener(new OnItemClickListener() 
         {
             public void onItemClick(AdapterView<?> parent, View view,
@@ -57,6 +50,8 @@ public class ListActivity extends Activity
               // When clicked, show a toast with the TextView text
             	final TextView text = (TextView)view;
         		AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+        		String charityName = text.getText().toString();
+        		String blurb = Charity.getBlurbFromName(CHARITIES, charityName);
             	if (text.isEnabled())
             	{
                 	builder.setTitle(text.getText()).setCancelable(false)
@@ -107,16 +102,61 @@ public class ListActivity extends Activity
         {
         	public boolean onTouch(View v, MotionEvent event)
         	{
+        		DownloadCharitiesTask download = new DownloadCharitiesTask(v.getContext());
+        		download.execute("");
                 //CHARITIES = UpdateQueue.GetCharityList(v.getContext());
+        		/*
         		Intent dashboardScreen = new Intent(v.getContext(), DashboardActivity.class);
 				Bundle charities = new Bundle();
 				charities.putStringArrayList("charities", myCharities);
 				dashboardScreen.putExtra("charity_info", charities);
-        		startActivity(dashboardScreen);
+        		startActivity(dashboardScreen);*/
             	return true;
         	}
         });
     }
+    
+    private class DownloadCharitiesTask extends AsyncTask<String, Void, Charity[]>
+    {
+    	private Context mContext;
+    	private ProgressDialog mLoadingDialog;
+    	
+    	public DownloadCharitiesTask(Context context)
+    	{
+    		mContext = context;
+    	}
+    	
+    	@Override
+    	protected void onPreExecute()
+    	{
+    		mLoadingDialog = ProgressDialog.show(mContext, "", 
+                    "Loading. Please wait...", true);
+    	}
+		@Override
+		protected Charity[] doInBackground(String... queries) 
+		{
+			Charity[] response = new Charity[0];
+			//Queries are unimplemented until we have a list so large
+			//that a search function is necessary and is implemented
+			//Until then just fetch the full charity list
+			for (String query : queries)
+			{
+				response = UpdateQueue.GetCharityList(mContext);
+			}
+			return response;
+		}
+		@Override
+		protected void onPostExecute(Charity[] result)
+		{
+	        ListView charities = (ListView)findViewById(R.id.charities);
+	        charities.setAdapter(new ArrayAdapter<String>(mContext, android.R.layout.simple_list_item_1, 
+	        		Charity.getCharityNameArray(result)));
+	        CHARITIES = result;
+			mLoadingDialog.dismiss();
+		}
+    	
+    }
+    
     public static double round(double unrounded, int precision)
     {
         BigDecimal bd = new BigDecimal(unrounded);
