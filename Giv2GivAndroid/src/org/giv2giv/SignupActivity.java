@@ -21,7 +21,7 @@ public class SignupActivity extends Activity
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		signupInfo = new String[9];
+		signupInfo = new String[10];
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.sign_up_screen);
@@ -46,7 +46,8 @@ public class SignupActivity extends Activity
             	signupInfo[5] = ((EditText)findViewById(R.id.zipcodeField)).getText().toString();
             	signupInfo[6] = ((EditText)findViewById(R.id.emailField)).getText().toString();
             	signupInfo[7] = ((EditText)findViewById(R.id.passwordField)).getText().toString();
-            	signupInfo[8] = ((EditText)findViewById(R.id.secondAddressField)).getText().toString();
+            	signupInfo[8] = ((EditText)findViewById(R.id.confPasswordField)).getText().toString();
+            	signupInfo[9] = ((EditText)findViewById(R.id.secondAddressField)).getText().toString();
             	for (int i = 0; i < signupInfo.length - 1; i++)
             	{
             		if (signupInfo[i].equals(""))
@@ -66,28 +67,39 @@ public class SignupActivity extends Activity
                     	return;
             		}
             	}
+            	if (!signupInfo[7].equals(signupInfo[8]))
+            	{
+            		AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                	builder.setTitle("Incorrect Information").setCancelable(false)
+                	.setMessage("Passwords do not match")
+                	.setNegativeButton("Return", new DialogInterface.OnClickListener() 
+                	{
+                		public void onClick(DialogInterface dialog, int id) 
+                		{
+                			dialog.cancel();
+                		}
+                	});
+                	AlertDialog alert = builder.create();
+                	alert.show();
+                	return;
+            	}
             	Bundle info = new Bundle();
-            	info.putString("firstName", ((EditText)findViewById(R.id.firstNameField))
-            			.getText().toString());
-            	info.putString("lastName", ((EditText)findViewById(R.id.lastNameField))
-            			.getText().toString());
-            	info.putString("firstAddress", ((EditText)findViewById(R.id.firstAddressField))
-            			.getText().toString());
-            	info.putString("secondAddress", ((EditText)findViewById(R.id.secondAddressField))
-            			.getText().toString());
-            	info.putString("city", ((EditText)findViewById(R.id.cityField))
-            			.getText().toString());
-            	info.putString("state", ((EditText)findViewById(R.id.stateField))
-            			.getText().toString());
-            	info.putString("zip", ((EditText)findViewById(R.id.zipcodeField))
-            			.getText().toString());
-            	info.putString("email", ((EditText)findViewById(R.id.emailField))
-            			.getText().toString());
-            	info.putString("pass", ((EditText)findViewById(R.id.passwordField))
-            			.getText().toString());
+            	//Name
+            	String personalInfo = "\n" + signupInfo[0] + " " + signupInfo[1];
+            	//Address
+            	personalInfo += "\n" + signupInfo[2];
+            	if (!signupInfo[8].equals(""))
+            	{
+            		personalInfo += "\n" + signupInfo[8];
+            	}
+            	//City, State Zip
+            	personalInfo += "\n" + signupInfo[3] + ", " + signupInfo[4]
+            			+ " " + signupInfo[5];
+            	//Email
+            	personalInfo += "\n" + signupInfo[6];
+            	info.putString("personalInfo", personalInfo);
             	nextScreen.putExtra("info", info);
             	startActivity(nextScreen);
-            	finish();
             	return;
             }
         });

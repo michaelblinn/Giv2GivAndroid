@@ -25,23 +25,8 @@ public class ConfirmationActivity extends Activity
 		//String charity = UpdateQueue.GetCharityList(this)[0];
 		Button completeButton = (Button)findViewById(R.id.confirmButton);
         Bundle infoToConfirm = this.getIntent().getBundleExtra("info");
-		((TextView)findViewById(R.id.firstNameConfirm)).setText(
-			(CharSequence)infoToConfirm.get("firstName"));
-		((TextView)findViewById(R.id.lastNameConfirm)).setText(
-			(CharSequence)infoToConfirm.get("lastName"));
-		((TextView)findViewById(R.id.firstAddressConfirm)).setText(
-			(CharSequence)infoToConfirm.get("firstAddress"));
-		((TextView)findViewById(R.id.secondAddressConfirm)).setText(
-			(CharSequence)infoToConfirm.get("secondAddress"));
-		String cityStateZip = (String)infoToConfirm.get("city");
-		cityStateZip += ", " + infoToConfirm.get("state");
-		cityStateZip += ", " + infoToConfirm.get("zip");
-		((TextView)findViewById(R.id.cityStateZipConfirm)).setText(
-			(CharSequence)cityStateZip);
-		((TextView)findViewById(R.id.emailConfirm)).setText(
-			(CharSequence)infoToConfirm.get("email"));
-		((TextView)findViewById(R.id.passwordConfirm)).setText(
-			(CharSequence)infoToConfirm.get("pass"));
+        ((TextView)findViewById(R.id.infoToConfirm)).setText(
+        		(CharSequence)infoToConfirm.getCharSequence("personalInfo"));
 		
 		/*Button loginButton = (Button)findViewById(R.id.connectButton);
 		final EditText usernameEntry = (EditText)findViewById(R.id.usernameField);

@@ -19,95 +19,13 @@
 		android:textStyle="bold"/>
 	    
 	    <TextView 
-	        android:id="@+id/firstNameConfirm"
+	        android:id="@+id/infoToConfirm"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_below="@+id/confirmationTag"
-	        android:layout_alignParentRight="true"/>
-	    
-	    <TextView
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/confirmationTag"
-	        android:layout_alignParentLeft="true"
-	        android:text="First Name:"
-	        android:textStyle="bold"/>
-	    
-	    <TextView 
-	        android:id="@+id/lastNameConfirm"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/firstNameConfirm"
-	        android:layout_alignParentRight="true"/>
-	    
-	    <TextView
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/firstNameConfirm"
-	        android:layout_alignParentLeft="true"
-	        android:text="Last Name:"
-	        android:textStyle="bold"/>
-	    
-	    <TextView 
-	        android:id="@+id/firstAddressConfirm"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/lastNameConfirm"
-	        android:layout_alignParentRight="true"/>
-	    
-	    <TextView
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/lastNameConfirm"
-	        android:layout_alignParentLeft="true"
-	        android:text="Address:"
-	        android:textStyle="bold"/>
-	    
-	    <TextView 
-	        android:id="@+id/secondAddressConfirm"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/firstAddressConfirm"
-	        android:layout_alignParentRight="true"/>
-
-	    <TextView 
-	        android:id="@+id/cityStateZipConfirm"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/secondAddressConfirm"
-	        android:layout_alignParentRight="true"/>
-	    	    
-	    <TextView 
-	        android:id="@+id/emailConfirm"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/cityStateZipConfirm"
-	        android:layout_alignParentRight="true"/>
-	    
-	    <TextView
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/cityStateZipConfirm"
-	        android:layout_alignParentLeft="true"
-	        android:text="Email:"
-	        android:textStyle="bold"/>
-	    
-	    
-	    <TextView
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/emailConfirm"
-	        android:layout_alignParentLeft="true"
-	        android:text="Password:"
-	        android:textStyle="bold"/>
+	        android:layout_alignParentLeft="true"/>
     </RelativeLayout>
 
-	    <TextView 
-	        android:id="@+id/passwordConfirm"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/confirmationInfo"
-	        android:layout_alignParentRight="true"/>
     <Button
         android:id="@+id/confirmButton"
         android:layout_width="150dp"

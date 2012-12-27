@@ -3,8 +3,8 @@
     android:id="@+id/scroller"
     android:fillViewport="true"
     android:layout_width="wrap_content"
-	    android:layout_height="wrap_content">
-
+    android:layout_height="wrap_content">
+    
 	<RelativeLayout
 	    xmlns:android="http://schemas.android.com/apk/res/android"
 	    android:id="@+id/sign_up_layout"
@@ -26,7 +26,8 @@
 	        android:layout_width="150dp"
 	        android:layout_height="50dp"
 	        android:layout_below="@id/signupSplash"
-	        android:layout_centerHorizontal="true"
+	        android:layout_marginRight="5dp"
+	        android:layout_alignParentRight="true"
 	        android:layout_marginBottom="5dp"
 	        android:layout_marginTop="10dp"
 	        android:inputType="text"
@@ -37,7 +38,8 @@
 	        android:layout_width="150dp"
 	        android:layout_height="50dp"
 	        android:layout_below="@id/firstNameField"
-	        android:layout_centerHorizontal="true"
+	        android:layout_marginRight="5dp"
+	        android:layout_alignParentRight="true"
 	        android:layout_marginBottom="5dp"
 	        android:layout_marginTop="5dp"
 	        android:inputType="text"
@@ -48,7 +50,8 @@
 	        android:layout_width="150dp"
 	        android:layout_height="50dp"
 	        android:layout_below="@id/lastNameField"
-	        android:layout_centerHorizontal="true"
+	        android:layout_marginRight="5dp"
+	        android:layout_alignParentRight="true"
 	        android:layout_marginBottom="5dp"
 	        android:layout_marginTop="5dp"
 	        android:inputType="text"
@@ -59,7 +62,8 @@
 	        android:layout_width="150dp"
 	        android:layout_height="50dp"
 	        android:layout_below="@id/firstAddressField"
-	        android:layout_centerHorizontal="true"
+	        android:layout_marginRight="5dp"
+	        android:layout_alignParentRight="true"
 	        android:layout_marginBottom="5dp"
 	        android:layout_marginTop="5dp"
 	        android:inputType="text"
@@ -70,7 +74,8 @@
 	        android:layout_width="150dp"
 	        android:layout_height="50dp"
 	        android:layout_below="@id/secondAddressField"
-	        android:layout_centerHorizontal="true"
+	        android:layout_marginRight="5dp"
+	        android:layout_alignParentRight="true"
 	        android:layout_marginBottom="5dp"
 	        android:layout_marginTop="5dp"
 	        android:inputType="text"
@@ -81,7 +86,8 @@
 	        android:layout_width="150dp"
 	        android:layout_height="50dp"
 	        android:layout_below="@id/cityField"
-	        android:layout_centerHorizontal="true"
+	        android:layout_marginRight="5dp"
+	        android:layout_alignParentRight="true"
 	        android:layout_marginBottom="5dp"
 	        android:layout_marginTop="5dp"
 	        android:inputType="text"
@@ -92,7 +98,8 @@
 	        android:layout_width="150dp"
 	        android:layout_height="50dp"
 	        android:layout_below="@id/stateField"
-	        android:layout_centerHorizontal="true"
+	        android:layout_marginRight="5dp"
+	        android:layout_alignParentRight="true"
 	        android:layout_marginBottom="5dp"
 	        android:layout_marginTop="5dp"
 	        android:inputType="number"
@@ -173,7 +180,8 @@
 	        android:layout_width="150dp"
 	        android:layout_height="50dp"
 	        android:layout_below="@id/zipcodeField"
-	        android:layout_centerHorizontal="true"
+	        android:layout_marginRight="5dp"
+	        android:layout_alignParentRight="true"
 	        android:layout_marginBottom="5dp"
 	        android:layout_marginTop="5dp"
 	        android:inputType="textEmailAddress"
@@ -194,7 +202,8 @@
 	        android:layout_width="150dp"
 	        android:layout_height="50dp"
 	        android:layout_below="@id/emailField"
-	        android:layout_centerHorizontal="true"
+	        android:layout_marginRight="5dp"
+	        android:layout_alignParentRight="true"
 	        android:layout_marginBottom="5dp"
 	        android:layout_marginTop="5dp"
 	        android:inputType="text"
@@ -208,6 +217,28 @@
 	        android:layout_alignBottom="@+id/passwordField"
 	        android:layout_alignParentLeft="true"
 	        android:text="Password:"
+	        android:textStyle="bold" />
+		
+		<EditText
+	        android:id="@+id/confPasswordField"
+	        android:layout_width="150dp"
+	        android:layout_height="50dp"
+	        android:layout_below="@id/passwordField"
+	        android:layout_marginRight="5dp"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginBottom="5dp"
+	        android:layout_marginTop="5dp"
+	        android:inputType="text"
+	        android:textSize="11dp" />
+	    
+		<TextView
+	        android:id="@+id/confPasswordTag"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/confPasswordField"
+	        android:layout_alignBottom="@+id/confPasswordField"
+	        android:layout_alignParentLeft="true"
+	        android:text="Confirm Password:"
 	        android:textStyle="bold" /><!-- 	    <DatePicker
 	        android:id="@+id/dateOfBirth"
 	        android:layout_width="200dp"
@@ -230,7 +261,7 @@
 	        android:layout_width="fill_parent"
 	        android:layout_height="49dp"
 	        android:layout_centerHorizontal="true"
-	        android:layout_below="@id/passwordField"
+	        android:layout_below="@id/confPasswordField"
 	        android:text="Next" />
 
 
