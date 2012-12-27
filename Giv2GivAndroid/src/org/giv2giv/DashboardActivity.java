@@ -6,9 +6,13 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
@@ -97,6 +101,16 @@ public class DashboardActivity extends Activity {
             charityList.addView(charityDisplay, charityParams);
             sliderStart = perCharitySum;
         }
+        Button addMoreCharities = (Button)findViewById(R.id.dashAddCharity);
+        addMoreCharities.setOnTouchListener(new OnTouchListener()
+        {
+			public boolean onTouch(View v, MotionEvent m)
+			{
+				Intent intent = new Intent(v.getContext(), ListActivity.class);
+				startActivity(intent);
+				return true;
+			}
+        });
         SliderGroup charityGroup = new SliderGroup(charitySliders, charityPercents, null, 0);
         /*for (int i = 0; i < charitySliders.size(); i++)
         {

@@ -96,21 +96,29 @@ public class ListActivity extends Activity
             	alert.show();
             }
         });
-
+        
+        Button searchButton = (Button)findViewById(R.id.charitySearch);
+        searchButton.setOnTouchListener(new OnTouchListener()
+        {
+        		public boolean onTouch(View v, MotionEvent event)
+        		{
+        			DownloadCharitiesTask download = new DownloadCharitiesTask(v.getContext());
+        			download.execute("");
+        			return true;
+        		}
+        });
         Button listToDashButton = (Button)findViewById(R.id.listToDashButton);
         listToDashButton.setOnTouchListener(new OnTouchListener()
         {
         	public boolean onTouch(View v, MotionEvent event)
         	{
-        		DownloadCharitiesTask download = new DownloadCharitiesTask(v.getContext());
-        		download.execute("");
                 //CHARITIES = UpdateQueue.GetCharityList(v.getContext());
-        		/*
+        		
         		Intent dashboardScreen = new Intent(v.getContext(), DashboardActivity.class);
 				Bundle charities = new Bundle();
 				charities.putStringArrayList("charities", myCharities);
 				dashboardScreen.putExtra("charity_info", charities);
-        		startActivity(dashboardScreen);*/
+        		startActivity(dashboardScreen);
             	return true;
         	}
         });

@@ -4,12 +4,23 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
     <Button
+        android:id="@+id/charitySearch"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Search" 
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        />
+    
+    <Button
         android:id="@+id/listToDashButton"
-        android:layout_width="fill_parent"
+        android:layout_width="150dp"
         android:layout_height="50dp" 
-        android:text="Go To Dashboard"
+        android:text="Dash"
         android:textStyle="bold"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/charitySearch"/>
     
     <ListView
         android:id="@+id/charities"

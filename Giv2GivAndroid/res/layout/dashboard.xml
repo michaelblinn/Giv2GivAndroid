@@ -227,5 +227,11 @@
 		    android:layout_height="wrap_content"
 		    android:layout_below="@id/charityHeader">    
 		</RelativeLayout>
+		<Button
+		    android:id="@+id/dashAddCharity"
+		    android:layout_width="fill_parent"
+		    android:layout_height="40dp"
+		    android:layout_below="@id/charityList"
+		    android:text="Add more..."/>
 	</RelativeLayout>
 </ScrollView>
