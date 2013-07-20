@@ -24,9 +24,9 @@ public class ConfirmationActivity extends Activity
 		setContentView(R.layout.confirmation_screen);
 		//String charity = UpdateQueue.GetCharityList(this)[0];
 		Button completeButton = (Button)findViewById(R.id.confirmButton);
-        Bundle infoToConfirm = this.getIntent().getBundleExtra("info");
-        ((TextView)findViewById(R.id.infoToConfirm)).setText(
-        		(CharSequence)infoToConfirm.getCharSequence("personalInfo"));
+//        Bundle infoToConfirm = this.getIntent().getBundleExtra("info");
+//        ((TextView)findViewById(R.id.infoToConfirm)).setText(
+//        		(CharSequence)infoToConfirm.getCharSequence("personalInfo"));
 		
 		/*Button loginButton = (Button)findViewById(R.id.connectButton);
 		final EditText usernameEntry = (EditText)findViewById(R.id.usernameField);
