@@ -1,8 +1,14 @@
 package org.giv2giv;
 
+import java.util.Hashtable;
+import java.util.Map.Entry;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,12 +19,12 @@ import android.widget.EditText;
 
 public class SignupActivity extends Activity
 {
-	private Pair[] signupInfo;
+	private Hashtable<String, Pair<Boolean, String>> signupInfo;
 	
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		signupInfo = new Pair[10];
+		signupInfo = new Hashtable<String, Pair<Boolean, String>>();
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.sign_up_screen);
@@ -35,16 +41,51 @@ public class SignupActivity extends Activity
             	Intent nextScreen = new Intent(v.getContext(), ConfirmationActivity.class);
             	//Second address is at the end as it is the only non-mandatory field
             	//This is done to simplify the check for empty responses immediately below
-            	signupInfo[0] = new Pair(true, ((EditText)findViewById(R.id.firstNameField)).getText().toString());
-            	signupInfo[1] = new Pair(true, ((EditText)findViewById(R.id.lastNameField)).getText().toString());
-            	signupInfo[2] = new Pair(false, ((EditText)findViewById(R.id.firstAddressField)).getText().toString());
-            	signupInfo[3] = new Pair(false, ((EditText)findViewById(R.id.cityField)).getText().toString());
-            	signupInfo[4] = new Pair(false, ((EditText)findViewById(R.id.stateField)).getText().toString());
-            	signupInfo[5] = new Pair(false, ((EditText)findViewById(R.id.zipcodeField)).getText().toString());
-            	signupInfo[6] = new Pair(true, ((EditText)findViewById(R.id.emailField)).getText().toString());
-            	signupInfo[7] = new Pair(true, ((EditText)findViewById(R.id.passwordField)).getText().toString());
-            	signupInfo[8] = new Pair(true, ((EditText)findViewById(R.id.confPasswordField)).getText().toString());
-            	signupInfo[9] = new Pair(false, ((EditText)findViewById(R.id.secondAddressField)).getText().toString());
+            	signupInfo.put("First Name", new Pair<Boolean, String>(true, 
+            			((EditText)findViewById(R.id.firstNameField)).getText().toString()));
+            	signupInfo.put("Last Name", new Pair<Boolean, String>(true, 
+            			((EditText)findViewById(R.id.lastNameField)).getText().toString()));
+            	signupInfo.put("First Address", new Pair<Boolean, String>(false, 
+            			((EditText)findViewById(R.id.firstAddressField)).getText().toString()));
+            	signupInfo.put("Second Address", new Pair<Boolean, String>(false, 
+            			((EditText)findViewById(R.id.secondAddressField)).getText().toString()));
+            	signupInfo.put("City",new Pair<Boolean, String>(false, 
+            			((EditText)findViewById(R.id.cityField)).getText().toString()));
+            	signupInfo.put("State", new Pair<Boolean, String>(false, 
+            			((EditText)findViewById(R.id.stateField)).getText().toString()));
+//            	signupInfo.put("country", new Pair<Boolean, String>(false, 
+//            			((EditText)findViewById(R.id.stateField)).getText().toString()));
+            	signupInfo.put("Email Address", new Pair<Boolean, String>(true, 
+            			((EditText)findViewById(R.id.emailField)).getText().toString()));
+            	signupInfo.put("Password", new Pair<Boolean, String>(true, 
+            			((EditText)findViewById(R.id.passwordField)).getText().toString()));
+            	signupInfo.put("Password Confirmation", new Pair<Boolean, String>(true, 
+            			((EditText)findViewById(R.id.confPasswordField)).getText().toString()));
+
+        		Log.i("SIGNUP_INFO", "" + signupInfo.entrySet().size());
+            	for (Entry<String, Pair<Boolean, String>> entry : signupInfo.entrySet())
+            	{
+            		Pair<Boolean, String> value = (Pair<Boolean, String>)entry.getValue();
+            		Log.i("SIGNUP_INFO", entry.getKey() + value.second);
+            		if (value.first && value.second.equals(""))
+            		{
+            			AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                    	builder.setTitle("Missing Information").setCancelable(false)
+                    	.setMessage("Please fill in all required fields: " + entry.getKey())
+                    	.setNegativeButton("Return", new DialogInterface.OnClickListener() 
+                    	{
+                    		public void onClick(DialogInterface dialog, int id) 
+                    		{
+                    			dialog.cancel();
+                    		}
+                    	});
+                    	AlertDialog alert = builder.create();
+                    	alert.show();
+                    	return;
+                    	
+            		}
+            		//if (signupInfo[])
+            	}
 //            	for (int i = 0; i < signupInfo.length - 1; i++)
 //            	{
 //            		if (signupInfo[i].equals(""))
