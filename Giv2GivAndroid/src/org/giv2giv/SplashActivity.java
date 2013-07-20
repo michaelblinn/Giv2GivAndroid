@@ -34,16 +34,16 @@ public class SplashActivity extends Activity
             public void run() {
 
                 Intent intent = new Intent();
-                
+                intent.setClass(SplashActivity.this, LandingPageActivity.class);
                 //if (skipLogin)
-                if (false)
-                {
-                	intent.setClass(SplashActivity.this, ListActivity.class);
-                }
-                else
-                {
-                	intent.setClass(SplashActivity.this, SignupActivity.class);
-                }
+//                if (false)
+//                {
+//                	intent.setClass(SplashActivity.this, ListActivity.class);
+//                }
+//                else
+//                {
+//                	intent.setClass(SplashActivity.this, SignupActivity.class);
+//                }
 
                 startActivity(intent);
                 finish();

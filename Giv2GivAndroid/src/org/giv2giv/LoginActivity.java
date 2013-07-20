@@ -17,25 +17,25 @@ public class LoginActivity extends Activity
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		setContentView(R.layout.connect_account);
+		setContentView(R.layout.login_page);
 		
-		Button loginButton = (Button)findViewById(R.id.connectButton);
-		final EditText usernameEntry = (EditText)findViewById(R.id.usernameField);
-		final EditText connectEntry = (EditText)findViewById(R.id.connectField);
-        loginButton.setOnClickListener(new OnClickListener() 
-        {
-            @Override
-            public void onClick(View v) 
-            {
-        		Intent listScreen = new Intent(v.getContext(), ListActivity.class);
-        		//UpdateQueue.GetUserToken(v.getContext(), connectEntry.getText().toString());
-        		if (UpdateQueue.GetUserToken(v.getContext(), "dodge"))
-        		{
-        			startActivity(listScreen);
-        			finish();
-        		}
-            	return;
-            }
-        });
+//		Button loginButton = (Button)findViewById(R.id.connectButton);
+//		final EditText usernameEntry = (EditText)findViewById(R.id.usernameField);
+//		final EditText connectEntry = (EditText)findViewById(R.id.connectField);
+//        loginButton.setOnClickListener(new OnClickListener() 
+//        {
+//            @Override
+//            public void onClick(View v) 
+//            {
+//        		Intent listScreen = new Intent(v.getContext(), ListActivity.class);
+//        		//UpdateQueue.GetUserToken(v.getContext(), connectEntry.getText().toString());
+//        		if (UpdateQueue.GetUserToken(v.getContext(), "dodge"))
+//        		{
+//        			startActivity(listScreen);
+//        			finish();
+//        		}
+//            	return;
+//            }
+//        });
 	}
 }
